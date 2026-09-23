@@ -1,0 +1,6 @@
+[
+  {"id":"admissions","title":"Приёмная комиссия","description":"Набор, конкурс и образовательные программы","icon":"admissions"},
+  {"id":"projects","title":"Развитие университета","description":"Строительство и стратегические проекты","icon":"projects"},
+  {"id":"calendar","title":"Календарь событий","description":"Мероприятия университета","icon":"calendar"},
+  {"id":"science","title":"Наука и разработки","description":"Исследования, проекты и финансирование","icon":"science"}
+]

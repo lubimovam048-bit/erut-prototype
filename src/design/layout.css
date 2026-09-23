@@ -1,0 +1,51 @@
+/* Layout contracts: content never depends on hover or an animation completing. */
+.sidebar .university-label{padding:10px 10px 16px;margin-bottom:0}
+.page-workspace,.panel-head,.page-toolbar,.modal-body,.knowledge-header{min-width:0}
+.panel-head>div,.program-row>div,.quota-row>span,.event-list-item>div{min-width:0}
+.kpi.ui-metric>strong{flex-wrap:wrap;white-space:normal;column-gap:7px;row-gap:4px}
+.kpi.ui-metric>strong>em{white-space:nowrap;flex-shrink:0}
+.kpi.ui-metric::before{right:0;transform:translateX(32px)}
+.page-workspace .focus-panels .donut-chart{margin-block:auto}
+.page-workspace .focus-panels .trend-chart{margin-block:auto}
+.page-workspace .focus-panels>.panel>.ui-button{flex-shrink:0;align-self:flex-start}
+.page-toolbar .toolbar-actions{flex-wrap:wrap}
+.page-toolbar{flex-wrap:wrap}
+.knowledge-row>strong{overflow-wrap:anywhere}
+@media(max-width:1199px),(max-height:619px){
+ .main-shell{height:auto;min-height:100dvh;overflow:visible}
+ main.focus-main{display:block;overflow:visible;min-height:0}
+ .page-workspace{overflow:visible;min-height:0}
+ .page-workspace .focus-panels{display:grid;grid-template-columns:minmax(0,1fr);height:auto;flex:none}
+ .focus-panels>.panel,.focus-panels>.stack>.panel{height:auto;min-height:0;overflow:visible}
+ .focus-panels>.stack{min-height:0}
+ .page-workspace .focus-panels .donut-chart,.page-workspace .focus-panels .trend-chart{margin-block:12px}
+ .focus-panels .trend-chart{height:240px;flex:none}
+ .workspace-home .dashboard-grid{height:auto;grid-auto-rows:auto}
+ .workspace-home .widget{min-height:0}
+ .workspace-university{overflow:visible!important}
+ .knowledge-embedded{overflow:visible}
+ .knowledge-embedded .knowledge-section{flex:none}
+ .knowledge-embedded .knowledge-metrics{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+}
+@media(max-width:1199px){
+ .workspace-map .map-layout{display:flex;flex-direction:column-reverse;height:auto;min-height:0}
+ .workspace-map .large-map{height:450px;flex-shrink:0}
+ .workspace-map .map-list{max-height:450px}
+ .workspace-map .map-list-scroll{max-height:310px}
+}
+@media(min-width:1200px) and (min-height:620px){
+ .workspace-science .focus-panels .panel,.workspace-finance .focus-panels .panel{scrollbar-gutter:stable}
+ .focus-panels .chart-insight{flex-wrap:wrap}
+}
+@media(max-width:760px){
+ .page-toolbar .toolbar-actions{width:100%;justify-content:space-between}
+ .page-toolbar .toolbar-actions>.ui-select-field{flex:1;max-width:none}
+ .filter-row{flex-wrap:wrap}.filter-row>.ui-select-field{min-width:110px}
+ .quota-row.action-row{gap:10px;flex-wrap:wrap}.quota-row.action-row>span{flex-basis:65%}
+ .quota-row.action-row>b{white-space:normal;text-align:right}
+ .map-key{max-width:calc(100% - 112px)}
+ .knowledge-metrics .kpi>strong{font-size:25px;line-height:1.2}
+}
+.budget-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;flex-shrink:0}.budget-tools .data-note{margin:0!important;max-width:100%}.budget-tools .ui-button{padding-inline:0}.budget-tools .data-note[open]{flex-basis:100%}
+@media(min-width:1200px) and (min-height:620px){.workspace-finance .focus-panels .trend-chart{min-height:160px;flex:1 1 160px}.workspace-finance .focus-panels>.panel{min-height:350px}}
+@media(min-width:1200px) and (min-height:620px){.workspace-finance .focus-panels .chart-insight{margin-top:4px}.workspace-finance .focus-panels>.panel>.focus-more{margin-top:4px}}

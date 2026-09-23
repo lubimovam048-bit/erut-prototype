@@ -1,0 +1,114 @@
+/* A focused workspace: summaries first, details one deliberate action away. */
+.focus-tabs{display:flex;gap:5px;align-items:center;flex-wrap:wrap;flex-shrink:0}
+.focus-tabs>button{padding:10px 15px;border:1px solid transparent;border-radius:10px;color:#63758e;font-size:15px;font-weight:500;line-height:1.3;transition:background .2s,color .2s}
+.focus-tabs>button:hover{background:#eaf0fb;color:#2857bb}
+.focus-tabs>button.active{color:#2857bb;background:white;border-color:#dbe5f5;box-shadow:0 3px 10px #254f8d08}
+.focus-tabs>button:focus-visible,.page-controls button:focus-visible{outline:2px solid #326aee;outline-offset:2px}
+.page-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;color:#677d9b;font-size:14px;padding-top:3px}
+.page-controls>div{display:flex;gap:5px;align-items:center}.page-controls button{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:15px}
+.page-controls button.active{background:#2e63d5;color:white}.page-controls button:disabled{opacity:.35;cursor:default}
+.toolbar-actions{display:flex;align-items:center;gap:8px}.toolbar-actions select{max-width:205px}
+.focus-more{margin-top:auto;padding-top:12px;width:fit-content}
+.calendar-context{color:#7586a0;font-size:15px}.calendar-stage{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;min-height:0;flex:1}
+.calendar-stage .calendar-grid{grid-template-rows:36px repeat(var(--calendar-rows),minmax(0,1fr));height:100%;overflow:hidden}
+.calendar-stage .weekday{padding:9px}.calendar-stage .focus-day{min-height:0;padding:12px 8px;text-align:left;display:flex;align-items:flex-start;justify-content:flex-start;gap:8px;flex-direction:column;cursor:pointer;transition:background .15s}
+.focus-day:hover,.focus-day.selected{background:#ecf2ff}.focus-day.selected{box-shadow:inset 0 0 0 2px #3973e1}
+.day-events-count{font-size:13px;color:#2d63c5;line-height:1.3}.calendar-stage .day-number{font-size:17px}
+.calendar-stage .period-events{display:flex;flex-direction:column;min-height:0;margin:0;padding:20px}
+.calendar-agenda{overflow:auto;min-height:0;flex:1;margin-bottom:16px;scrollbar-width:thin}
+.calendar-agenda-item{display:flex;flex-direction:column;gap:7px;text-align:left;border-bottom:1px solid #edf1f7;padding:14px 0;width:100%}
+.calendar-agenda-item>span{font-size:14px;color:#2f64c7}.calendar-agenda-item b{font-size:16px;line-height:1.45;font-weight:550}.calendar-agenda-item small{font-size:13px;color:#7c8aa0}
+.calendar-stage .period-events h2{font-size:19px}.calendar-stage .period-events .subtle-link{font-size:14px}
+.programs-view,.departments-view{grid-template-columns:minmax(0,1fr)}
+.programs-view .program-row{padding:14px 0}.programs-view .program-institute{margin-top:5px}
+.programs-view .institute-symbol{width:27px;height:27px}.programs-view .program-row:last-child{border:0}
+.focus-scroll{min-height:0;overflow:auto;flex:1;scrollbar-width:thin}
+
+@media(min-width:1200px) and (min-height:620px){
+ .main-shell{height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+ .topbar{height:60px;min-height:60px;padding:0 28px}
+ .sidebar{padding-top:20px}.sidebar .brand{margin-bottom:0}.sidebar .university-label{margin-bottom:17px}.sidebar nav button{padding-top:13px;padding-bottom:13px;min-height:45px}.sidebar .profile{padding-top:12px;padding-bottom:12px}
+ main.focus-main{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;width:100%;max-width:1800px;padding:18px 28px 10px;overflow:hidden}
+ .focus-main>.page-heading{flex-shrink:0;margin:0;min-height:44px;align-items:center;flex-wrap:nowrap}
+ .focus-main>.page-heading h1{font-size:28px;line-height:1.2;margin:0}.focus-main>.page-heading p{display:none}
+ .focus-main>.page-heading .period-pill{font-size:14px}.focus-main>.page-heading .btn{padding:10px 14px;font-size:14px}
+ .page-workspace{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow:auto;scrollbar-width:thin}
+ .page-workspace>.kpi-grid,.page-workspace>.page-toolbar,.page-workspace>.chips,.page-workspace>.focus-tabs{flex-shrink:0;margin:0}
+ .page-workspace>.kpi-grid{gap:13px}.page-workspace .kpi{padding:14px 18px;border-radius:14px}
+ .page-workspace .kpi>span{font-size:14px;min-height:0;line-height:1.3}.page-workspace .kpi>strong{font-size:32px;margin-top:8px;line-height:1.1}.page-workspace .kpi>small{font-size:13px;margin-top:7px;line-height:1.4}.page-workspace .kpi strong em{font-size:14px}
+ .page-workspace .kpi .spark{width:45px;height:24px}.home-kpis{margin-top:0}
+ .focus-main>.page-footer{padding:0;min-height:19px;font-size:12px;flex-shrink:0;margin:0}.focus-main>.page-footer button{font-size:13px}
+ .page-workspace .panel-head{margin-bottom:12px}.page-workspace .panel-head h2,.page-workspace .widget-body h2{font-size:20px;line-height:1.3}.page-workspace .panel-head p,.page-workspace .map-widget-head p{font-size:14px;line-height:1.3;margin-top:5px}
+ .page-workspace .panel{padding:20px;margin:0;min-height:0}
+ .page-workspace .focus-panels{flex:1;min-height:0;gap:16px;margin:0;align-items:stretch}
+ .focus-panels>.panel,.focus-panels>.stack>.panel{display:flex;flex-direction:column;min-height:0;overflow:auto;scrollbar-width:thin}
+ .focus-panels>.stack{display:flex;flex-direction:column;min-height:0;gap:0}.focus-panels>.stack>.panel{flex:1}
+ .page-workspace .chart-headline{margin:4px 0 8px}.page-workspace .chart-headline strong{font-size:32px}
+ .focus-panels .insight{padding:10px 12px;font-size:14px;line-height:1.4;margin-top:8px;gap:6px}.focus-panels .insight>span{font-size:13px}.focus-panels .data-note{margin-top:8px}.focus-panels .data-note p{font-size:14px}.focus-panels .source-link{margin-top:10px}
+ .focus-panels .chart-insight{padding:12px;margin-top:10px}.focus-panels .quota-row{padding:14px 0;font-size:15px}
+ .page-workspace .admissions-toolbar{flex-wrap:wrap;gap:8px}.admissions-toolbar .focus-tabs>button{padding:10px 11px;font-size:14px}.admissions-toolbar .toolbar-actions{margin-left:auto}.admissions-toolbar select{font-size:14px;padding:10px;max-width:195px}.admissions-toolbar .btn{font-size:14px;padding:9px 12px}
+ .focus-panels .admission-bars button{padding:7px 0;gap:12px}.focus-panels .admission-bars .bar-track{height:13px}.focus-panels .admission-bars strong{font-size:16px}.focus-panels .admission-bars .institute-symbol{width:31px;height:31px}
+ .departments-view>.panel{display:grid;grid-template-rows:auto auto minmax(0,1fr);gap:8px}.departments-view .admission-bars{overflow:auto;scrollbar-width:thin}.departments-view .admission-bars button{padding:9px 0}.departments-view .filter-row{margin:0}.departments-view .panel-head{margin:0}
+ .programs-view{height:100%}.programs-view .program-row{padding:12px 0}.programs-view .program-row>strong{font-size:24px}.programs-view .program-row b{font-size:17px}
+ .workspace-home .dashboard-grid{flex:1;min-height:0;grid-template-columns:1.1fr 1fr;gap:16px;grid-template-rows:minmax(0,1fr)}
+ .workspace-home .dashboard-grid.single-widget{grid-template-columns:1fr}
+ .workspace-home .widget{display:flex;flex-direction:column;padding:0;min-height:0}
+ .workspace-home .widget-dragbar{height:34px;min-height:34px;padding:0 18px}.workspace-home .widget-dragbar>span{font-size:12px;letter-spacing:.6px}
+ .workspace-home .widget-body{padding:17px 20px;display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;scrollbar-width:thin}
+ .workspace-home .widget-body>.panel-head{flex-shrink:0;gap:10px;margin-bottom:6px}.workspace-home .widget-body>.panel-head .segmented button{font-size:13px;padding:7px 9px}
+ .workspace-home .widget-bottom{display:none}.workspace-home .map-widget-head{flex:0;padding:16px 20px}
+ .workspace-home .mini-map{flex:1;height:auto;min-height:160px}.workspace-home .institute-bars{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding-top:0}.workspace-home .institute-bars button{padding:5px 0}
+ .workspace-home .upcoming-event{flex:1;padding:10px 0}.workspace-home .upcoming-event>div>b{font-size:16px}.workspace-home .date-tile{width:44px;height:48px}
+ .workspace-home .config-panel{flex-shrink:0;margin:0;padding:18px}.workspace-home .dashboard-editing{flex:none;grid-auto-rows:340px;grid-template-rows:340px;overflow:visible}.workspace-home .dashboard-editing .widget{min-height:340px}
+ .workspace-map .map-layout{height:100%;min-height:0;flex:1}.workspace-map .map-list{min-height:0;display:flex;flex-direction:column}.workspace-map .map-list-head{padding:18px;flex-shrink:0}.workspace-map .map-list-scroll{flex:1;min-height:0;max-height:none}.workspace-map .large-map{height:100%;min-height:0}
+ .workspace-institutes .page-toolbar{min-height:42px}.workspace-institutes .section-description span{font-size:14px}.workspace-institutes .institute-grid{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:14px}
+ .workspace-institutes .institute-card{display:flex;flex-direction:column;min-height:0;overflow:auto;scrollbar-width:thin}
+ .workspace-institutes .institute-card-cover{height:66px;min-height:66px}.workspace-institutes .institute-card-cover>.institute-badge{left:19px;bottom:12px;font-size:22px}.workspace-institutes .institute-card-cover .institute-symbol{width:42px;height:42px;border-radius:13px}.workspace-institutes .institute-card-cover .institute-symbol svg{width:26px;height:26px}.workspace-institutes .institute-card-cover>.institute-watermark{width:85px;height:85px;bottom:-10px;right:35px}
+ .workspace-institutes .institute-card-body{padding:12px 19px;flex:1;display:flex;flex-direction:column}.workspace-institutes .institute-card-body h2{font-size:17px;line-height:1.35;min-height:0;margin:0}.workspace-institutes .institute-card-stats{padding-top:10px;margin-top:auto;gap:35px;border:0}.workspace-institutes .institute-card-stats b{font-size:25px;line-height:1.1}.workspace-institutes .institute-card-stats small{font-size:13px;margin-top:4px}
+ .workspace-projects .chips{gap:5px}.workspace-projects .chips button{font-size:14px;padding:9px 12px}
+ .workspace-projects .project-grid{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:14px}.workspace-projects .project-card{padding:17px 20px;min-height:0;overflow:auto;scrollbar-width:thin}.workspace-projects .project-card-top{margin-bottom:8px}.workspace-projects .project-card h2{font-size:20px;line-height:1.3;margin:7px 0 12px}.workspace-projects .project-card>p{display:none}.workspace-projects .project-card>.eyebrow{font-size:12px}.workspace-projects .project-card-footer{padding-top:10px;margin-top:auto}.workspace-projects .project-card-footer b{font-size:16px}
+ .workspace-calendar .calendar-toolbar{min-height:42px;flex-wrap:nowrap;gap:10px}.workspace-calendar .month-switch{gap:5px}.workspace-calendar .month-switch h2{min-width:165px;font-size:21px}.workspace-calendar .calendar-toolbar select{max-width:190px;font-size:14px}
+ .focus-event-list{flex:1;min-height:0;display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:10px}.focus-event-list .event-list-item{padding:13px 20px;min-height:0;gap:22px;margin:0}.focus-event-list .event-date{font-size:17px;width:150px;flex-shrink:0}.focus-event-list .event-date small{font-size:13px}.focus-event-list .event-list-item h3{font-size:18px;margin:5px 0;line-height:1.3}.focus-event-list .event-list-item p{font-size:14px;line-height:1.3;margin:0}.focus-event-list .event-list-item .badge{font-size:12px;padding:3px 7px}
+ /* Within full-screen cards, the identity and summary stay above details. */
+ .institute-modal-header{min-height:0;padding:22px 75px 22px 28px}.institute-modal-header h2{font-size:27px}.institute-modal-header>.institute-badge.large{flex-direction:row;gap:12px;font-size:23px}.institute-modal-header .institute-symbol{width:52px;height:52px;border-radius:16px}.institute-modal-header .institute-symbol svg{width:29px;height:29px}
+ .institute-modal .modal-body{padding:0 28px 20px}.institute-modal .detail-tabs{margin:17px 0}.institute-modal .detail-stats{gap:16px;padding:0 0 18px}.institute-modal .detail-stats>div{padding:16px 20px}.institute-modal .detail-stats b{font-size:33px}.institute-modal .detail-stats span{margin-top:5px}
+ .institute-overview-grid{gap:16px}.institute-overview-grid>.panel{padding:18px}.institute-overview-grid h3{font-size:20px}.institute-overview-grid .connected-campus img{float:right;width:35%;height:90px;margin:0 0 10px 15px}.institute-overview-grid .connected-campus p{font-size:14px;margin:9px 0}.institute-overview-grid .connected-campus .btn{font-size:14px;padding:9px 12px}
+}
+@media(max-width:1199px), (max-height:619px){
+ .page-workspace{display:flex;flex-direction:column;gap:16px}.page-workspace>.kpi-grid,.page-workspace>.page-toolbar{margin:0}
+ .focus-main>.page-heading p{display:none}.focus-main>.page-heading{margin-bottom:16px}
+ .focus-tabs>button{font-size:14px;padding:9px 12px}.dashboard-grid.single-widget{grid-template-columns:1fr}.dashboard-grid{margin:0}
+ .page-controls{padding-bottom:10px}.admissions-toolbar{align-items:flex-start}.admissions-toolbar>.focus-tabs{width:100%}.admissions-toolbar .toolbar-actions{width:100%;justify-content:space-between}
+ .focus-panels .panel{margin:0}.calendar-stage{grid-template-columns:1fr}.calendar-stage .calendar-grid{min-height:400px}.calendar-stage .period-events{max-height:340px}.calendar-context{font-size:14px}.calendar-toolbar{flex-wrap:wrap;gap:12px}.calendar-toolbar .month-switch{width:auto}.calendar-toolbar .month-switch h2{font-size:20px}.focus-day .day-events-count{font-size:12px}
+ .workspace-projects .project-card>p{display:none}.focus-scroll{overflow:visible}.programs-view{display:block}.page-workspace>.institute-grid{margin:0}.focus-event-list .event-list-item{padding:18px}.focus-event-list .event-list-item h3{font-size:19px}.focus-event-list .event-list-item p{font-size:14px}
+}
+@media(max-width:760px){
+ .focus-main>.page-heading h1{font-size:25px}.focus-main>.page-heading{gap:10px}.focus-main>.page-heading .period-pill{display:none}.focus-main>.page-heading .btn{font-size:13px;padding:9px 11px}
+ .workspace-home .home-kpis{gap:10px}.workspace-home .home-kpis .kpi{padding:13px 14px}.workspace-home .home-kpis .kpi>span{font-size:13px;min-height:32px}.workspace-home .home-kpis .kpi>strong{font-size:28px;margin-top:7px;gap:5px}.workspace-home .home-kpis .kpi>strong em{font-size:13px}.workspace-home .home-kpis .kpi>small{font-size:13px;line-height:1.35;margin-top:7px}.workspace-home .home-kpis .spark{display:none}
+ .workspace-home .widget-dragbar{display:none}.workspace-home .widget-body{padding:18px}.workspace-home .widget-body h2{font-size:19px}.workspace-home .widget-body .panel-head p{font-size:13px}.workspace-home .widget-body .panel-head{flex-wrap:wrap;gap:10px}.workspace-home .chart-headline{margin:8px 0}.workspace-home .chart-headline strong{font-size:30px}.workspace-home .widget-bottom{display:none}.workspace-home .mini-map{height:270px}.workspace-home .widget-bottom button{font-size:14px}
+ .workspace-home .focus-tabs{gap:3px}.workspace-home .focus-tabs>button{padding:9px 12px}.workspace-home .dashboard-editing .widget-dragbar{display:flex}
+ .workspace-institutes .institute-card-cover{height:90px}.workspace-institutes .institute-card-cover>.institute-badge{bottom:17px;left:19px;font-size:23px}.workspace-institutes .institute-card-cover .institute-symbol{width:48px;height:48px;border-radius:15px}.workspace-institutes .institute-card-cover .institute-symbol svg{width:28px;height:28px}.workspace-institutes .institute-card-body{padding:17px 20px}.workspace-institutes .institute-card-body h2{font-size:18px}.workspace-institutes .institute-card-stats{margin-top:13px;padding-top:12px}.workspace-institutes .institute-card-stats b{font-size:27px}
+}
+@media(min-width:1200px) and (min-height:620px){
+ .page-workspace .kpi{animation:none}
+ .workspace-home .map-widget-head{flex:0 0 auto;display:block;overflow:visible;min-height:0}
+ .focus-panels .panel-head,.focus-panels .chart-headline,.focus-panels .chart-insight,.focus-panels .data-note{flex-shrink:0}
+ .focus-panels .admission-bars button{padding:5px 0}.focus-more{padding-top:8px}
+ .focus-panels .data-note{margin:8px 0 0}.focus-panels .chart-insight{flex-direction:row;align-items:center;gap:14px;padding:10px 12px}.focus-panels .chart-insight b{font-size:24px;white-space:nowrap}
+}
+@media(min-width:1200px) and (min-height:620px){
+ .departments-view .admission-bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;column-gap:36px;row-gap:7px}
+ .departments-view .admission-bars button{padding:13px 0}
+ .programs-view .program-row>div{display:grid;grid-template-columns:minmax(0,1fr) 110px;align-items:center;gap:14px}
+ .programs-view .program-institute{margin-top:0}.programs-view .program-row{padding:21px 0}
+}
+@media(max-width:760px){
+ .focus-main>.page-heading{flex-wrap:nowrap;align-items:center;gap:9px}.focus-main>.page-heading>div:first-child{min-width:0;flex:1}.focus-main>.page-heading h1{font-size:23px;line-height:1.25}
+ .focus-main>.page-heading .heading-actions .btn{font-size:0;gap:0;padding:0;width:38px;height:38px;display:grid;place-items:center}.focus-main>.page-heading .heading-actions .btn svg{width:19px;height:19px}
+ .workspace-home .home-kpis .kpi>span{min-height:18px;line-height:1.3}.workspace-home .home-kpis .kpi>strong{min-height:32px;line-height:1.1}.workspace-home .home-kpis .kpi>small{line-height:1.35}
+ .page-workspace .kpi{animation:none}
+}
+@media(max-width:760px){
+ .focus-main>.page-heading .heading-actions{width:auto;flex:0 0 auto;margin:0}
+ .focus-main>.page-heading h1{display:block}
+}

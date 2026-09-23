@@ -1,0 +1,20 @@
+import mapConfig from '../data/map-config.json';
+import institutes from '../data/institutes.json';
+import objects from '../data/objects.json';
+import overview from '../data/overview.json';
+import admissions from '../data/admissions.json';
+import events from '../data/events.json';
+import finance from '../data/finance.json';
+import science from '../data/science.json';
+import projects from '../data/projects.json';
+import research from '../data/research-projects.json';
+import strategy from '../data/strategy.json';
+export { institutes, objects, overview, admissions, events, finance, science, projects, research, strategy };
+export type Institute = typeof institutes[number];
+export type CampusObject = typeof objects[number];
+export type UniversityEvent = typeof events[number];
+export type Project = typeof projects[number];
+export const fmt = (n: number) => new Intl.NumberFormat('ru-RU', {maximumFractionDigits: 1}).format(n);
+
+export { mapConfig };
+export const moscowObjects = objects.filter(object => !mapConfig.excludedObjectIds.includes(object.id));

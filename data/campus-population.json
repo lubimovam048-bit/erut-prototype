@@ -1,0 +1,20 @@
+[
+ {"id":"primary","name":"Начальная школа","campusId":"gymnasium","education":"school","onsite":289,"remote":0},
+ {"id":"school","name":"Средняя и старшая школа","campusId":"gymnasium","education":"school","onsite":424,"remote":0},
+ {"id":"mkt","name":"МКТ","campusId":"kuchin","education":"college","onsite":2377,"remote":231},
+ {"id":"med","name":"Медколледж","campusId":"budayskaya","education":"college","onsite":977,"remote":0},
+ {"id":"law-college","name":"Правовой колледж","campusId":"obraztsova","education":"college","onsite":735,"remote":28},
+ {"id":"water-college","name":"Колледж водного транспорта","campusId":"sudostroitelnaya","education":"college","onsite":418,"remote":0},
+ {"id":"aga-college","name":"АГА (СПО)","campusId":"obraztsova","education":"college","onsite":56,"remote":0},
+ {"id":"izht","name":"ИЖТ","campusId":"obraztsova","education":"higher","onsite":7551,"remote":246,"instituteId":"izht"},
+ {"id":"isti","name":"ИСТИ","campusId":"roat","education":"higher","onsite":2492,"remote":0,"instituteId":"isti"},
+ {"id":"ief","name":"ИЭФ","campusId":"obraztsova","education":"higher","onsite":2897,"remote":0,"instituteId":"ief"},
+ {"id":"law","name":"ЮИ","campusId":"obraztsova","education":"higher","onsite":1702,"remote":957,"instituteId":"law"},
+ {"id":"vish","name":"ВИШ","campusId":"obraztsova","education":"higher","onsite":918,"remote":0,"instituteId":"vish"},
+ {"id":"pish","name":"ПИШ","campusId":"obraztsova","education":"higher","onsite":380,"remote":0,"instituteId":"pish"},
+ {"id":"imtk","name":"ИМТК","campusId":"obraztsova","education":"higher","onsite":812,"remote":10,"instituteId":"imtk"},
+ {"id":"avt","name":"АВТ","campusId":"sudostroitelnaya","education":"higher","onsite":687,"remote":22,"instituteId":"avt"},
+ {"id":"aga","name":"АГА","campusId":"obraztsova","education":"higher","onsite":282,"remote":0,"instituteId":"aga"},
+ {"id":"adh","name":"АДХ","campusId":"lyublino","education":"higher","onsite":299,"remote":45,"instituteId":"adh"},
+ {"id":"roat","name":"РОАТ","campusId":"roat","education":"higher","onsite":0,"remote":7250}
+]

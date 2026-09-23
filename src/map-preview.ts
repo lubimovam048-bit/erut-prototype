@@ -1,0 +1,11 @@
+import {buildings,campuses,campusArea,campusStudents,campusObjects,educationTypes,type Building,type CampusPoint,type Construction} from './campus';
+import {fmt,institutes} from './data';
+export type MapPreview={title:string;eyebrow:string;address?:string;metrics:{value:string;label:string}[];detail?:string;hint:string};
+export function campusPreview(id:string):MapPreview{
+ const c=campuses.find(c=>c.id===id)!;const students=campusStudents(id);
+ return {title:c.name,eyebrow:c.city,address:c.address,metrics:[{value:students===null?'—':fmt(students),label:students===null?'численность не указана':'обучающихся'},{value:fmt(campusArea(id)),label:'м² · общая площадь'}],detail:[c.education.map(e=>educationTypes[e].name).join(' · '),`${campusObjects(id).reduce((s,o)=>s+o.buildings,0)} корпусов по данным университета`].filter(Boolean).join(' · '),hint:'Нажмите, чтобы приблизить кампус'};
+}
+export function buildingPreview(b:Building):MapPreview{return {title:b.name,eyebrow:'Корпус',address:b.geometrySource?.address,metrics:[{value:b.area===null?'—':fmt(b.area),label:b.area===null?'площадь уточняется':'м² · площадь'}],detail:b.instituteIds.map(id=>institutes.find(i=>i.id===id)?.short).filter(Boolean).join(' · ')||'Подразделения не указаны',hint:'Нажмите, чтобы открыть карточку корпуса'};}
+export function institutePreview(id:string):MapPreview{const i=institutes.find(i=>i.id===id)!;return {title:i.name,eyebrow:i.short,metrics:[{value:fmt(i.students),label:'студентов · очно'},{value:fmt(i.enrolled),label:'набор 2026 · очно'}],detail:buildings.filter(b=>b.instituteIds.includes(id)).map(b=>b.name).join(' · '),hint:'Нажмите, чтобы открыть институт'};}
+export function pointPreview(p:CampusPoint):MapPreview{return {title:p.name,eyebrow:p.kind==='cameras'?'Видеонаблюдение':p.kind==='gates'?'Доступ в кампус':'Питание',metrics:[],detail:p.kind==='cameras'?'Видеопоток не подключён':`${p.hours||'Расписание уточняется'}${p.operator?' · '+p.operator:''}`,hint:p.kind==='cameras'?'Нажмите, чтобы открыть окно камеры':'Расписание и расположение условные · подробнее по нажатию'};}
+export function constructionPreview(p:Construction):MapPreview{return {title:p.name,eyebrow:'Строительство',metrics:[{value:String(p.year),label:'плановый ввод'}],detail:'Точная готовность не подтверждена',hint:'Нажмите, чтобы открыть сведения о проекте'};}

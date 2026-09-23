@@ -1,0 +1,62 @@
+{
+  "aga": {
+    "icon": "plane",
+    "color": "#0671A1",
+    "soft": "#E6F5FC",
+    "colorName": "Небесный"
+  },
+  "adh": {
+    "icon": "road",
+    "color": "#9D5E13",
+    "soft": "#FFF3DE",
+    "colorName": "Янтарный"
+  },
+  "pish": {
+    "icon": "speed",
+    "color": "#7352CE",
+    "soft": "#F1EBFF",
+    "colorName": "Фиолетовый"
+  },
+  "avt": {
+    "icon": "anchor",
+    "color": "#06777D",
+    "soft": "#E4F6F5",
+    "colorName": "Бирюзовый"
+  },
+  "imtk": {
+    "icon": "globe",
+    "color": "#446F28",
+    "soft": "#EEF5E5",
+    "colorName": "Оливковый"
+  },
+  "vish": {
+    "icon": "engineering",
+    "color": "#AE3B73",
+    "soft": "#FCEAF3",
+    "colorName": "Малиновый"
+  },
+  "law": {
+    "icon": "scales",
+    "color": "#A9463A",
+    "soft": "#FCECE8",
+    "colorName": "Терракотовый"
+  },
+  "isti": {
+    "icon": "bridge",
+    "color": "#52637C",
+    "soft": "#EDF1F7",
+    "colorName": "Сланцевый"
+  },
+  "ief": {
+    "icon": "economy",
+    "color": "#147854",
+    "soft": "#E5F6EF",
+    "colorName": "Изумрудный"
+  },
+  "izht": {
+    "icon": "train",
+    "color": "#315DCE",
+    "soft": "#EAF0FF",
+    "colorName": "Кобальтовый"
+  }
+}

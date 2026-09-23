@@ -1,0 +1,92 @@
+[
+  {
+    "id": "aga",
+    "short": "АГА",
+    "name": "Академия гражданской авиации",
+    "students": 282,
+    "enrolled": 134,
+    "objectId": "aviation",
+    "source": 5
+  },
+  {
+    "id": "adh",
+    "short": "АДХ",
+    "name": "Академия дорожного хозяйства",
+    "students": 299,
+    "enrolled": 122,
+    "objectId": "roads",
+    "source": 5
+  },
+  {
+    "id": "pish",
+    "short": "ПИШ",
+    "name": "Передовая инженерная школа «Академия ВСМ»",
+    "students": 380,
+    "enrolled": 148,
+    "objectId": "engineering",
+    "source": 5
+  },
+  {
+    "id": "avt",
+    "short": "АВТ",
+    "name": "Академия водного транспорта",
+    "students": 687,
+    "enrolled": 180,
+    "objectId": "water",
+    "source": 5
+  },
+  {
+    "id": "imtk",
+    "short": "ИМТК",
+    "name": "Институт международных транспортных коммуникаций",
+    "students": 812,
+    "enrolled": 197,
+    "objectId": "aviation",
+    "source": 5
+  },
+  {
+    "id": "vish",
+    "short": "ВИШ",
+    "name": "Высшая инженерная школа",
+    "students": 918,
+    "enrolled": 287,
+    "objectId": "engineering",
+    "source": 5
+  },
+  {
+    "id": "law",
+    "short": "ЮИ",
+    "name": "Юридический институт",
+    "students": 1702,
+    "enrolled": 339,
+    "objectId": "law",
+    "source": 5
+  },
+  {
+    "id": "isti",
+    "short": "ИСТИ",
+    "name": "Институт строительства транспортной инфраструктуры",
+    "students": 2492,
+    "enrolled": 700,
+    "objectId": "roat",
+    "source": 5
+  },
+  {
+    "id": "ief",
+    "short": "ИЭФ",
+    "name": "Институт экономики и финансов",
+    "students": 2897,
+    "enrolled": 828,
+    "objectId": "economics",
+    "source": 5
+  },
+  {
+    "id": "izht",
+    "short": "ИЖТ",
+    "name": "Институт железнодорожного транспорта",
+    "students": 7551,
+    "enrolled": 1933,
+    "objectId": "rail",
+    "source": 5
+  }
+]

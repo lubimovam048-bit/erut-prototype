@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Приоритет-2030",
+    "year": 391.7,
+    "total": 5678.1,
+    "period": "2022–2036",
+    "source": 12,
+    "id": "strategy-1"
+  },
+  {
+    "title": "Передовые инженерные школы",
+    "year": 369.3,
+    "total": 699.9,
+    "period": "2024–2026",
+    "source": 12,
+    "id": "strategy-2"
+  },
+  {
+    "title": "Капитальный ремонт",
+    "year": 1044,
+    "total": 5370.5,
+    "period": "2020–2030",
+    "source": 12,
+    "id": "strategy-3"
+  },
+  {
+    "title": "МТК «Образцово»",
+    "year": 3587,
+    "total": 38799,
+    "period": "2019–2031",
+    "source": 12,
+    "id": "strategy-4"
+  },
+  {
+    "title": "Учебные тренажёры",
+    "year": 59.4,
+    "total": 4099.6,
+    "period": "2025–2030",
+    "source": 12,
+    "id": "strategy-5"
+  },
+  {
+    "title": "ТОП-ИТ",
+    "year": 34.1,
+    "total": 206.6,
+    "period": "2026–2030",
+    "source": 12,
+    "id": "strategy-6"
+  },
+  {
+    "title": "Иные гранты",
+    "year": 91.3,
+    "total": 91.3,
+    "period": "2026",
+    "source": 12,
+    "id": "strategy-7"
+  }
+]

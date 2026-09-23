@@ -1,0 +1,14 @@
+{
+  "color": {
+    "primary": "#2E63D5", "primary-hover": "#224EAE", "primary-soft": "#EAF0FF",
+    "text": "#203451", "muted": "#596D89", "subtle": "#63748F",
+    "canvas": "#F3F6FD", "surface": "#FFFFFF", "border": "#DCE5F2",
+    "success": "#147854", "success-soft": "#E5F6EF", "warning": "#9D5E13", "warning-soft": "#FFF3DE",
+    "danger": "#B43B51", "danger-soft": "#FCECF0", "focus": "#2E63D5"
+  },
+  "space": {"1":"4px","2":"8px","3":"12px","4":"16px","5":"20px","6":"24px","8":"32px","10":"40px","12":"48px"},
+  "radius": {"sm":"8px","md":"12px","lg":"18px","xl":"24px","pill":"999px"},
+  "motion": {"fast":"140ms","normal":"220ms","slow":"420ms"},
+  "shadow": {"soft":"0 4px 18px #20345108","raised":"0 12px 36px #20345112","focus":"0 0 0 4px #2E63D51F"},
+  "type": {"caption":"13px","body":"15px","label":"14px","title":"20px","page":"28px","metric":"34px"}
+}

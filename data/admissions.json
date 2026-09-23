@@ -1,0 +1,329 @@
+{
+  "source": 5,
+  "applications": 28000,
+  "applicationGrowth": 28,
+  "enrolled": 7060,
+  "score": 74.6,
+  "scoreAll": 69.6,
+  "scoreGrowth": 5.7,
+  "nationalScore2025": 70.1,
+  "years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "enrollmentHistory": [
+    6994,
+    6713,
+    7164,
+    7060
+  ],
+  "scoreHistory": [
+    63.6,
+    65.2,
+    68.9,
+    74.6
+  ],
+  "quotas": [
+    {
+      "name": "Отдельная квота",
+      "value": 168,
+      "change": 65
+    },
+    {
+      "name": "Особая квота",
+      "value": 56,
+      "change": null
+    },
+    {
+      "name": "Целевая квота",
+      "value": 217,
+      "change": -36
+    }
+  ],
+  "regions": [
+    {
+      "name": "Калужская область",
+      "value": 99
+    },
+    {
+      "name": "Владимирская область",
+      "value": 97
+    },
+    {
+      "name": "Брянская область",
+      "value": 78
+    },
+    {
+      "name": "Краснодарский край",
+      "value": 71
+    },
+    {
+      "name": "Ростовская область",
+      "value": 71
+    }
+  ],
+  "moscow": 4641,
+  "otherRegions": 2419,
+  "olympiads": 5,
+  "college": {
+    "source": 7,
+    "applications": 8300,
+    "enrolled": 1390,
+    "growth": 3.3,
+    "competition": 7.2,
+    "moscow": 1140,
+    "otherRegions": 250,
+    "institutes": [
+      {
+        "short": "АГА (СПО)",
+        "students": 56,
+        "enrolled": 30,
+        "objectIds": [
+          "aviation"
+        ]
+      },
+      {
+        "short": "КВТ",
+        "students": 418,
+        "enrolled": 132,
+        "objectIds": [
+          "water-college"
+        ]
+      },
+      {
+        "short": "ПК",
+        "students": 763,
+        "enrolled": 282,
+        "objectIds": [
+          "law"
+        ]
+      },
+      {
+        "short": "МК",
+        "students": 977,
+        "enrolled": 355,
+        "objectIds": [
+          "med",
+          "med-extra"
+        ]
+      },
+      {
+        "short": "МКТ",
+        "students": 2608,
+        "enrolled": 587,
+        "objectIds": [
+          "mkt"
+        ]
+      }
+    ],
+    "programs": [
+      {
+        "name": "Организация перевозок и управление на транспорте",
+        "institute": "МКТ",
+        "value": 786,
+        "metric": "applications",
+        "source": 7
+      },
+      {
+        "name": "Юриспруденция",
+        "institute": "ПК",
+        "value": 769,
+        "metric": "applications",
+        "source": 7
+      },
+      {
+        "name": "Сестринское дело",
+        "institute": "МК",
+        "value": 768,
+        "metric": "applications",
+        "source": 7
+      },
+      {
+        "name": "Техническая эксплуатация подвижного состава (вагоны)",
+        "institute": "МКТ",
+        "value": 534,
+        "metric": "applications",
+        "source": 7
+      },
+      {
+        "name": "Лечебное дело",
+        "institute": "МК",
+        "value": 520,
+        "metric": "applications",
+        "source": 7
+      },
+      {
+        "name": "Техническая эксплуатация подвижного состава (локомотивы)",
+        "institute": "МКТ",
+        "value": 500,
+        "metric": "applications",
+        "source": 7
+      }
+    ]
+  },
+  "programs": [
+    {
+      "name": "Строительство",
+      "institute": "ИСТИ",
+      "value": 4102,
+      "metric": "applications",
+      "source": 6
+    },
+    {
+      "name": "Информатика и вычислительная техника",
+      "institute": "ИЖТ",
+      "value": 3720,
+      "metric": "applications",
+      "source": 6
+    },
+    {
+      "name": "Информационные системы и технологии",
+      "institute": "ИЖТ",
+      "value": 2982,
+      "metric": "applications",
+      "source": 6
+    },
+    {
+      "name": "Строительство железных дорог, мостов и тоннелей",
+      "institute": "ИСТИ",
+      "value": 2981,
+      "metric": "applications",
+      "source": 6
+    },
+    {
+      "name": "Технология транспортных процессов",
+      "institute": "ИЖТ",
+      "value": 2809,
+      "metric": "applications",
+      "source": 6
+    },
+    {
+      "name": "Экономика",
+      "institute": "ИЭФ",
+      "value": 255,
+      "metric": "competition",
+      "source": 6
+    },
+    {
+      "name": "Фундаментальная информатика и ИТ",
+      "institute": "ИЖТ",
+      "value": 125,
+      "metric": "competition",
+      "source": 6
+    },
+    {
+      "name": "Прикладная математика и информатика",
+      "institute": "ИЖТ",
+      "value": 116,
+      "metric": "competition",
+      "source": 6
+    },
+    {
+      "name": "Строительство уникальных зданий и сооружений",
+      "institute": "ИСТИ",
+      "value": 100,
+      "metric": "competition",
+      "source": 6
+    },
+    {
+      "name": "Информационная безопасность",
+      "institute": "ИЖТ",
+      "value": 84,
+      "metric": "competition",
+      "source": 6
+    },
+    {
+      "name": "Управление цифровыми инновациями",
+      "institute": "ИЖТ",
+      "value": 84.4,
+      "metric": "score",
+      "source": 6
+    },
+    {
+      "name": "Строительство подземных сооружений",
+      "institute": "ИСТИ",
+      "value": 81.6,
+      "metric": "score",
+      "source": 6
+    },
+    {
+      "name": "Строительство автомагистралей, аэродромов и специальных сооружений",
+      "institute": "АДХ",
+      "value": 81.4,
+      "metric": "score",
+      "source": 6
+    },
+    {
+      "name": "Бизнес-процессы на воздушном транспорте",
+      "institute": "АГА",
+      "value": 79.3,
+      "metric": "score",
+      "source": 6
+    },
+    {
+      "name": "Планирование и эксплуатация городских транспортных систем",
+      "institute": "ВИШ",
+      "value": 78.8,
+      "metric": "score",
+      "source": 6
+    }
+  ],
+  "newPrograms": [
+    {
+      "name": "Строительство подземных сооружений",
+      "institute": "ИСТИ",
+      "level": "Базовое высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Безопасность компьютерных систем и сетей (в сфере связи, информационных и коммуникационных технологий)",
+      "institute": "ИЖТ",
+      "level": "Базовое высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Инжиниринг подвижного состава ВСМ",
+      "institute": "ПИШ",
+      "level": "Базовое высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Цифровое проектирование, строительство и эксплуатация инфраструктуры ВСМ",
+      "institute": "ПИШ",
+      "level": "Базовое высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Эксплуатация беспилотных авиационных систем",
+      "institute": "АГА",
+      "level": "Базовое высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Гигиена и техносферные риски транспортных систем",
+      "institute": "ИЖТ",
+      "level": "Специализированное высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Инжиниринг процессов пассажирского сервиса на ВСМ",
+      "institute": "ПИШ",
+      "level": "Специализированное высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Интеллектуальные системы обработки информации и управления на воздушном транспорте",
+      "institute": "АГА",
+      "level": "Специализированное высшее образование",
+      "source": 6
+    },
+    {
+      "name": "Государственное управление на транспорте",
+      "institute": "ИЭФ",
+      "level": "Специализированное высшее образование",
+      "source": 6
+    }
+  ]
+}

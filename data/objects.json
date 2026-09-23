@@ -1,0 +1,325 @@
+[
+  {
+    "id": "rail",
+    "name": "Институт железнодорожного транспорта",
+    "category": "Основной кампус",
+    "address": "улица Образцова, 9 с9; Новосущёвская улица, 22 с1; Новосущёвская улица, 22 с3; улица Образцова, 9 с3",
+    "students": 7800,
+    "buildings": 4,
+    "area": 53000,
+    "coordinates": [
+      37.608032449999996,
+      55.78795634
+    ],
+    "approximate": false,
+    "image": "./assets/rail.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "economics",
+    "name": "Институт экономики и финансов",
+    "category": "Основной кампус",
+    "address": "Новосущёвская улица, 22 с2",
+    "students": 2900,
+    "buildings": 1,
+    "area": 18000,
+    "coordinates": [
+      37.60497655,
+      55.78764375
+    ],
+    "approximate": false,
+    "image": "./assets/economics.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "law",
+    "name": "Юридический институт и Правовой колледж",
+    "category": "Основной кампус",
+    "address": "улица Образцова, 9 с4",
+    "students": 3400,
+    "buildings": 1,
+    "area": 5000,
+    "coordinates": [
+      37.6063386,
+      55.78782865
+    ],
+    "approximate": false,
+    "image": "./assets/law.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "engineering",
+    "name": "ВИШ и ПИШ «Академия ВСМ»",
+    "category": "Основной кампус",
+    "address": "улица Образцова, 9 с2",
+    "students": 1300,
+    "buildings": 1,
+    "area": 9000,
+    "coordinates": [
+      37.608828450000004,
+      55.78850185
+    ],
+    "approximate": false,
+    "image": "./assets/engineering.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "aviation",
+    "name": "Академия гражданской авиации, ИМТК",
+    "category": "Основной кампус",
+    "address": "Новосущёвская улица, 26А",
+    "students": 1200,
+    "buildings": 1,
+    "area": 6000,
+    "coordinates": [
+      37.604841,
+      55.7917099
+    ],
+    "approximate": false,
+    "image": "./assets/aviation.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "basic",
+    "name": "Академия базовой подготовки",
+    "category": "Основной кампус",
+    "address": "улица Образцова, 9 с8",
+    "students": null,
+    "buildings": 1,
+    "area": 1000,
+    "coordinates": [
+      37.607699350000004,
+      55.7883589
+    ],
+    "approximate": false,
+    "image": "./assets/basic.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "raps",
+    "name": "Российская академия путей сообщения",
+    "category": "Основной кампус",
+    "address": "Октябрьский переулок, 7",
+    "students": null,
+    "buildings": 1,
+    "area": 6000,
+    "coordinates": [
+      37.61197645,
+      55.785942000000006
+    ],
+    "approximate": false,
+    "image": "./assets/raps.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "youth",
+    "name": "Дом молодёжи",
+    "category": "Основной кампус",
+    "address": "улица Образцова, 21",
+    "students": null,
+    "buildings": 1,
+    "area": 482,
+    "coordinates": [
+      37.608865699999996,
+      55.79076925
+    ],
+    "approximate": false,
+    "image": "./assets/youth.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "roat",
+    "name": "РОАТ и ИСТИ",
+    "category": "Учебный корпус",
+    "address": "ул. Часовая, 22/2, стр. 1; ул. Часовая, 22/2, стр. 2; ул. Часовая, 22/2, стр. 3",
+    "students": 9700,
+    "buildings": 3,
+    "area": 21000,
+    "coordinates": [
+      37.527055391666664,
+      55.81006613833335
+    ],
+    "approximate": false,
+    "image": "./assets/roat.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "mkt",
+    "name": "Московский колледж транспорта",
+    "category": "Колледж",
+    "address": "Кучин пер., 14, стр. 1; Кучин пер., 14, стр. 2; Кучин пер., 14, стр. 15",
+    "students": 2600,
+    "buildings": 3,
+    "area": 13000,
+    "coordinates": [
+      37.639870725,
+      55.804074937500005
+    ],
+    "approximate": false,
+    "image": "./assets/mkt.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "med-extra",
+    "name": "Медицинский колледж · вспомогательный корпус",
+    "category": "Колледж",
+    "address": "Кучин пер., 14, стр. 9",
+    "students": null,
+    "buildings": 1,
+    "area": 4000,
+    "coordinates": [
+      37.64079521666667,
+      55.80380571666666
+    ],
+    "approximate": false,
+    "image": "./assets/med-extra.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "med",
+    "name": "Медицинский колледж",
+    "category": "Колледж",
+    "address": "ул. Будайская, 2, стр. 18",
+    "students": 977,
+    "buildings": 1,
+    "area": 2600,
+    "coordinates": [
+      37.66888535,
+      55.83005931666668
+    ],
+    "approximate": false,
+    "image": "./assets/med.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "water",
+    "name": "Академия водного транспорта",
+    "category": "Учебный корпус",
+    "address": "ул. Судостроительная, 46, стр. 1",
+    "students": 709,
+    "buildings": 3,
+    "area": 17000,
+    "coordinates": [
+      37.69431945,
+      55.68686562142857
+    ],
+    "approximate": false,
+    "image": "./assets/water.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "water-college",
+    "name": "Колледж водного транспорта",
+    "category": "Колледж",
+    "address": "ул. Судостроительная, 46, стр. 2",
+    "students": 418,
+    "buildings": 1,
+    "area": 8000,
+    "coordinates": [
+      37.694715450000004,
+      55.6875567
+    ],
+    "approximate": false,
+    "image": "./assets/water-college.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "roads",
+    "name": "Академия дорожного хозяйства",
+    "category": "Учебный корпус",
+    "address": "ул. Люблинская, 88, стр. 1",
+    "students": 344,
+    "buildings": 2,
+    "area": 11000,
+    "coordinates": [
+      37.740212825,
+      55.663430268750005
+    ],
+    "approximate": false,
+    "image": "./assets/roads.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "military",
+    "name": "Военный учебный центр",
+    "category": "Развитие",
+    "address": "ул. Талдомская, 5",
+    "students": null,
+    "buildings": 1,
+    "area": 5200,
+    "coordinates": [
+      37.514462,
+      55.8713569875
+    ],
+    "approximate": false,
+    "image": "./assets/military.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "school-primary",
+    "name": "Начальная школа и дошкольное отделение",
+    "category": "Гимназия",
+    "address": "2-й Лучевой просек, 5А",
+    "students": 289,
+    "buildings": 1,
+    "area": 1600,
+    "coordinates": [
+      37.654678858333334,
+      55.801256375
+    ],
+    "approximate": false,
+    "image": "./assets/school-primary.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "school",
+    "name": "Средняя и старшая школа",
+    "category": "Гимназия",
+    "address": "3-я Мытищинская ул., 12, стр. 1",
+    "students": 424,
+    "buildings": 1,
+    "area": 3600,
+    "coordinates": [
+      37.6449817125,
+      55.803196787500006
+    ],
+    "approximate": false,
+    "image": "./assets/school.webp",
+    "source": 3,
+    "video": null
+  },
+  {
+    "id": "sochi",
+    "name": "Сочинский филиал",
+    "category": "Филиал",
+    "address": "ул. Яна Фабрициуса, 26А/1",
+    "students": null,
+    "buildings": 1,
+    "area": 5200,
+    "coordinates": [
+      39.7527929625,
+      43.58129369166667
+    ],
+    "approximate": false,
+    "image": "./assets/sochi.webp",
+    "source": 3,
+    "video": null
+  }
+]

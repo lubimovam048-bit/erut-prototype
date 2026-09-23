@@ -1,0 +1,42 @@
+{
+  "name": "Москва",
+  "center": [
+    37.615,
+    55.773
+  ],
+  "maxBounds": [
+    [
+      37.33,
+      55.54
+    ],
+    [
+      37.95,
+      55.96
+    ]
+  ],
+  "overviewBounds": [
+    [
+      37.48,
+      55.65
+    ],
+    [
+      37.77,
+      55.9
+    ]
+  ],
+  "minZoom": 9.4,
+  "maxZoom": 18,
+  "excludedObjectIds": [
+    "sochi"
+  ],
+  "attribution": [
+    {
+      "label": "© CARTO",
+      "url": "https://carto.com/about-carto/"
+    },
+    {
+      "label": "© участники OpenStreetMap",
+      "url": "https://www.openstreetmap.org/copyright"
+    }
+  ]
+}
