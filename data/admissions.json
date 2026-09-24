@@ -82,7 +82,8 @@
         "enrolled": 30,
         "objectIds": [
           "aviation"
-        ]
+        ],
+        "name": "Академия гражданской авиации · СПО"
       },
       {
         "short": "КВТ",
@@ -90,7 +91,8 @@
         "enrolled": 132,
         "objectIds": [
           "water-college"
-        ]
+        ],
+        "name": "Колледж водного транспорта"
       },
       {
         "short": "ПК",
@@ -98,7 +100,8 @@
         "enrolled": 282,
         "objectIds": [
           "law"
-        ]
+        ],
+        "name": "Правовой колледж"
       },
       {
         "short": "МК",
@@ -107,7 +110,8 @@
         "objectIds": [
           "med",
           "med-extra"
-        ]
+        ],
+        "name": "Медицинский колледж"
       },
       {
         "short": "МКТ",
@@ -115,7 +119,8 @@
         "enrolled": 587,
         "objectIds": [
           "mkt"
-        ]
+        ],
+        "name": "Московский колледж транспорта"
       }
     ],
     "programs": [
@@ -124,44 +129,67 @@
         "institute": "МКТ",
         "value": 786,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-01",
+        "canonicalId": null
       },
       {
         "name": "Юриспруденция",
         "institute": "ПК",
         "value": 769,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-02",
+        "canonicalId": null
       },
       {
         "name": "Сестринское дело",
         "institute": "МК",
         "value": 768,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-03",
+        "canonicalId": null
       },
       {
         "name": "Техническая эксплуатация подвижного состава (вагоны)",
         "institute": "МКТ",
         "value": 534,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-04",
+        "canonicalId": null
       },
       {
         "name": "Лечебное дело",
         "institute": "МК",
         "value": 520,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-05",
+        "canonicalId": null
       },
       {
         "name": "Техническая эксплуатация подвижного состава (локомотивы)",
         "institute": "МКТ",
         "value": 500,
         "metric": "applications",
-        "source": 7
+        "source": 7,
+        "id": "spo-06",
+        "canonicalId": null
       }
-    ]
+    ],
+    "applicationGrowth": 2.6,
+    "priority": {
+      "value": 89,
+      "change": 14.1,
+      "categories": [
+        "Участники СВО",
+        "Вдовы участников СВО",
+        "Дети участников СВО",
+        "Дети участников боевых действий"
+      ]
+    }
   },
   "programs": [
     {
@@ -169,105 +197,135 @@
       "institute": "ИСТИ",
       "value": 4102,
       "metric": "applications",
-      "source": 6
+      "source": 6,
+      "id": "vo-01",
+      "canonicalId": null
     },
     {
       "name": "Информатика и вычислительная техника",
       "institute": "ИЖТ",
       "value": 3720,
       "metric": "applications",
-      "source": 6
+      "source": 6,
+      "id": "vo-02",
+      "canonicalId": null
     },
     {
       "name": "Информационные системы и технологии",
       "institute": "ИЖТ",
       "value": 2982,
       "metric": "applications",
-      "source": 6
+      "source": 6,
+      "id": "vo-03",
+      "canonicalId": null
     },
     {
       "name": "Строительство железных дорог, мостов и тоннелей",
       "institute": "ИСТИ",
       "value": 2981,
       "metric": "applications",
-      "source": 6
+      "source": 6,
+      "id": "vo-04",
+      "canonicalId": null
     },
     {
       "name": "Технология транспортных процессов",
       "institute": "ИЖТ",
       "value": 2809,
       "metric": "applications",
-      "source": 6
+      "source": 6,
+      "id": "vo-05",
+      "canonicalId": null
     },
     {
       "name": "Экономика",
       "institute": "ИЭФ",
       "value": 255,
       "metric": "competition",
-      "source": 6
+      "source": 6,
+      "id": "vo-06",
+      "canonicalId": null
     },
     {
-      "name": "Фундаментальная информатика и ИТ",
+      "name": "Фундаментальная информатика и информационные технологии",
       "institute": "ИЖТ",
       "value": 125,
       "metric": "competition",
-      "source": 6
+      "source": 6,
+      "id": "vo-07",
+      "canonicalId": null
     },
     {
       "name": "Прикладная математика и информатика",
       "institute": "ИЖТ",
       "value": 116,
       "metric": "competition",
-      "source": 6
+      "source": 6,
+      "id": "vo-08",
+      "canonicalId": null
     },
     {
       "name": "Строительство уникальных зданий и сооружений",
       "institute": "ИСТИ",
       "value": 100,
       "metric": "competition",
-      "source": 6
+      "source": 6,
+      "id": "vo-09",
+      "canonicalId": null
     },
     {
       "name": "Информационная безопасность",
       "institute": "ИЖТ",
       "value": 84,
       "metric": "competition",
-      "source": 6
+      "source": 6,
+      "id": "vo-10",
+      "canonicalId": null
     },
     {
       "name": "Управление цифровыми инновациями",
       "institute": "ИЖТ",
       "value": 84.4,
       "metric": "score",
-      "source": 6
+      "source": 6,
+      "id": "vo-11",
+      "canonicalId": null
     },
     {
       "name": "Строительство подземных сооружений",
       "institute": "ИСТИ",
       "value": 81.6,
       "metric": "score",
-      "source": 6
+      "source": 6,
+      "id": "vo-12",
+      "canonicalId": null
     },
     {
       "name": "Строительство автомагистралей, аэродромов и специальных сооружений",
       "institute": "АДХ",
       "value": 81.4,
       "metric": "score",
-      "source": 6
+      "source": 6,
+      "id": "vo-13",
+      "canonicalId": null
     },
     {
       "name": "Бизнес-процессы на воздушном транспорте",
       "institute": "АГА",
       "value": 79.3,
       "metric": "score",
-      "source": 6
+      "source": 6,
+      "id": "vo-14",
+      "canonicalId": null
     },
     {
       "name": "Планирование и эксплуатация городских транспортных систем",
       "institute": "ВИШ",
       "value": 78.8,
       "metric": "score",
-      "source": 6
+      "source": 6,
+      "id": "vo-15",
+      "canonicalId": null
     }
   ],
   "newPrograms": [
@@ -275,55 +333,73 @@
       "name": "Строительство подземных сооружений",
       "institute": "ИСТИ",
       "level": "Базовое высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-01",
+      "canonicalId": null
     },
     {
       "name": "Безопасность компьютерных систем и сетей (в сфере связи, информационных и коммуникационных технологий)",
       "institute": "ИЖТ",
       "level": "Базовое высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-02",
+      "canonicalId": null
     },
     {
       "name": "Инжиниринг подвижного состава ВСМ",
       "institute": "ПИШ",
       "level": "Базовое высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-03",
+      "canonicalId": null
     },
     {
       "name": "Цифровое проектирование, строительство и эксплуатация инфраструктуры ВСМ",
       "institute": "ПИШ",
       "level": "Базовое высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-04",
+      "canonicalId": null
     },
     {
       "name": "Эксплуатация беспилотных авиационных систем",
       "institute": "АГА",
       "level": "Базовое высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-05",
+      "canonicalId": null
     },
     {
       "name": "Гигиена и техносферные риски транспортных систем",
       "institute": "ИЖТ",
       "level": "Специализированное высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-06",
+      "canonicalId": null
     },
     {
       "name": "Инжиниринг процессов пассажирского сервиса на ВСМ",
       "institute": "ПИШ",
       "level": "Специализированное высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-07",
+      "canonicalId": null
     },
     {
       "name": "Интеллектуальные системы обработки информации и управления на воздушном транспорте",
       "institute": "АГА",
       "level": "Специализированное высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-08",
+      "canonicalId": null
     },
     {
       "name": "Государственное управление на транспорте",
       "institute": "ИЭФ",
       "level": "Специализированное высшее образование",
-      "source": 6
+      "source": 6,
+      "id": "new-09",
+      "canonicalId": null
     }
   ]
 }

@@ -2,7 +2,8 @@
 import {computed,ref,useId,watch,onBeforeUnmount} from 'vue';
 import {UiEmptyState} from './ui';
 import {fmt} from '../data';
-const props=withDefaults(defineProps<{values:number[];labels:(string|number)[];suffix?:string;color?:string}>(),{suffix:'',color:'#2864e8'});
+const props=withDefaults(defineProps<{values:number[];labels:(string|number)[];suffix?:string;color?:string;interactive?:boolean}>(),{suffix:'',color:'#2864e8'});
+const emit=defineEmits<{select:[index:number]}>();
 const id=useId();const host=ref<HTMLElement>();const width=ref(580);const height=ref(240);const hovered=ref<number|null>(null);let observer:ResizeObserver|undefined;
 watch(()=>[props.values,props.labels],()=>hovered.value=null);
 watch(host,element=>{observer?.disconnect();if(element&&typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(([entry])=>{width.value=Math.max(entry.contentRect.width,200);height.value=Math.max(entry.contentRect.height,160);});observer.observe(element);}},{flush:'post'});
@@ -21,13 +22,13 @@ const tooltip=computed(()=>{const p=points.value[activeIndex.value];if(!p)return
 <template>
  <UiEmptyState v-if="!values.length" title="Нет данных для графика" description="Выберите другой срез или период." icon="trend"/>
  <div v-else ref="host" class="trend-chart">
-  <svg :viewBox="`0 0 ${width} ${height}`" role="img" :aria-label="labels.map((label,index)=>`${label}: ${values[index]}${suffix}`).join(', ')">
+  <svg :viewBox="`0 0 ${width} ${height}`" :role="interactive?'group':'img'" :aria-label="labels.map((label,index)=>`${label}: ${values[index]}${suffix}`).join(', ')">
    <defs><linearGradient :id="id+'-fill'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" :stop-color="color" stop-opacity=".2"/><stop offset="100%" :stop-color="color" stop-opacity=".015"/></linearGradient></defs>
    <path v-for="fraction in [0,.5,1]" :key="fraction" :d="`M24 ${bottom-(bottom-48)*fraction} H${width-24}`" stroke="#dce6f6" stroke-dasharray="3 7"/>
    <path :d="`${line} L${points.at(-1)?.x??52} ${bottom} L52 ${bottom} Z`" :fill="`url(#${id}-fill)`"/>
    <path :d="line" fill="none" :stroke="color" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
    <path v-if="points[activeIndex]" :d="`M${points[activeIndex].x} 20 V${bottom}`" :stroke="color" stroke-opacity=".18" stroke-dasharray="4 5"/>
-   <g v-for="(p,index) in points" :key="index" tabindex="0" :aria-label="`${labels[index]}: ${fmt(p.v)}${suffix}`" @mouseenter="hovered=index" @mouseleave="hovered=null" @focus="hovered=index" @blur="hovered=null">
+   <g v-for="(p,index) in points" :key="index" tabindex="0" :role="interactive?'button':undefined" @click="interactive&&emit('select',index)" @keydown.enter.prevent="interactive&&emit('select',index)" @keydown.space.prevent="interactive&&emit('select',index)" :aria-label="`${labels[index]}: ${fmt(p.v)}${suffix}`" @mouseenter="hovered=index" @mouseleave="hovered=null" @focus="hovered=index" @blur="hovered=null">
     <rect :x="p.x-25" y="10" width="50" :height="height-10" fill="transparent"/>
     <circle v-if="activeIndex===index" :cx="p.x" :cy="p.y" r="12" :fill="color" fill-opacity=".12"/>
     <circle :cx="p.x" :cy="p.y" r="4.5" fill="white" :stroke="color" stroke-width="2.5"/>

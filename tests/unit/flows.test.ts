@@ -42,7 +42,7 @@ it('admissions export follows the selected population and produces a usable CSV'
  const page=mount(Admissions);await page.findAll('button').find(b=>b.text()==='Подразделения')!.trigger('click');
  await page.get('select[aria-label="Подразделение"]').setValue('ief');await page.findAll('button').find(b=>b.text().includes('CSV'))!.trigger('click');
  const content=await new Promise<string>(resolve=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result));reader.readAsText(blob!);});
- expect(content).toContain('ИЭФ;2897;828');expect(content).not.toContain('ИЖТ;');expect(filename).toBe('RUT.digital-прием-2026.csv');expect(revoke).toHaveBeenCalledWith('blob:test');page.unmount();
+ expect(content).toContain('ИЭФ;2897;828');expect(content).not.toContain('ИЖТ;');expect(filename).toBe('RUT.digital-прием-2026-ВО-departments.csv');expect(revoke).toHaveBeenCalledWith('blob:test');page.unmount();
 });
 
 it('removes global search and persists a collapsed navbar while retaining a restore control',async()=>{
