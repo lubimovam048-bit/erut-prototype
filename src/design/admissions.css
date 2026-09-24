@@ -92,3 +92,80 @@
  .ad-navigation>nav.ui-tabs button{width:100%;justify-content:center}
  .ad-navigation .ad-meta{width:100%;justify-content:space-between}
 }
+
+/* Department admission list: full data set, no progressive disclosure. */
+.admissions-dashboard .ad-departments-panel{padding:24px 26px 18px;border-radius:18px;box-shadow:0 12px 38px #244d8410}
+.ad-departments-panel>.panel-head{margin-bottom:20px}
+.ad-departments-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;width:100%}
+.ad-departments-heading h2{font-size:28px!important;line-height:1.2!important;color:#19366b;letter-spacing:-.6px}
+.ad-departments-heading p{margin:5px 0 0;color:#5e78a8}
+.ad-departments-controls{display:flex;align-items:flex-end;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+.ad-departments-controls .ui-tabs{display:flex;flex-wrap:nowrap;gap:3px;padding:4px;background:#f1f5fb;border:1px solid #dce6f5;border-radius:12px}
+.ad-departments-controls .ui-tabs button{min-height:38px;padding:8px 17px;border-radius:9px;color:#5872a2;font-size:14px;white-space:nowrap}
+.ad-departments-controls .ui-tabs button.active{background:#2768e3;color:#fff;border-color:#2768e3;box-shadow:0 3px 9px #2768e338}
+.ad-departments-controls .ui-tabs button:disabled{opacity:.55;background:transparent;box-shadow:none}
+.ad-department-sort{display:grid;gap:5px;color:#6a7f9b;font-size:12px}
+.ad-department-sort .ui-select-field{min-width:190px}
+.ad-department-sort select{height:48px;border-radius:11px;color:#1d3d74;font-weight:550;background:#fff}
+.ad-department-filter .ui-select-field{min-width:230px}
+.ad-form-status{min-height:48px;display:flex;align-items:center;padding:0 15px;border:1px solid #dce6f5;border-radius:11px;background:#f5f8fd;color:#667d9c;font-size:14px}
+.ad-department-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.ad-department-summary>div{min-width:0;min-height:104px;display:flex;align-items:center;gap:15px;padding:18px 20px;border:1px solid #dbe6f5;border-radius:15px;background:linear-gradient(135deg,#fff,#fbfdff)}
+.ad-department-summary-icon{width:52px;height:52px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:linear-gradient(145deg,#f1f7ff,#e5f1ff);color:#2768e3}
+.ad-department-summary>div>div{display:grid;gap:1px;min-width:0}
+.ad-department-summary strong{font-size:29px;line-height:1.05;color:#19366b;letter-spacing:-.5px;white-space:nowrap}
+.ad-department-summary>div>div>span{font-size:14px;color:#607bac}
+.ad-department-summary small{margin-left:auto;align-self:flex-end;color:#5875a6;font-size:13px;line-height:1.35;text-align:right}
+.ad-department-summary>div:first-child small{color:#178457;font-weight:600}
+.ad-department-summary>div:last-child{position:relative;padding-bottom:30px}
+.ad-department-summary>div:last-child small{position:absolute;right:20px;bottom:13px;max-width:145px}
+.ad-department-list-wrap{overflow-x:auto;border:1px solid #e0e8f4;border-radius:14px}
+.ad-department-list{min-width:850px}
+.ad-department-list .admission-bars{width:100%;border-collapse:collapse}
+.ad-department-list .admission-bars td{padding:0}
+.ad-department-list-head,.ad-department-row{display:grid;grid-template-columns:42px minmax(390px,1fr) 105px 122px 95px 24px;align-items:center;gap:12px}
+.ad-department-list-head{min-height:48px;padding:0 20px;background:#f5f8fd;color:#536f9f;font-size:13px;font-weight:600}
+.ad-department-list-head>span:nth-child(n+3){text-align:right}
+.ad-department-row.ui-button{width:100%;min-height:74px;padding:10px 20px;border-top:0;border-radius:0;text-align:left;background:#fff;color:#19366b}
+.ad-department-list .admission-bars tr+tr .ad-department-row{border-top:1px solid #e7edf6}
+.ad-department-row.ui-button:hover{background:#f5f9ff}
+.ad-department-row.ui-button.is-leading{background:linear-gradient(90deg,#edf6ff,#f8fbff)}
+.ad-department-row.ui-button.is-leading:hover{background:linear-gradient(90deg,#e5f1ff,#f2f8ff)}
+.ad-department-number{font-size:15px;font-variant-numeric:tabular-nums;color:#315f9f}
+.ad-department-identity{display:flex;align-items:center;gap:12px;min-width:0}
+.ad-department-identity .institute-badge{width:auto}
+.ad-department-identity .institute-symbol,.ad-department-college-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;background:var(--institute-soft,#eef3fa);color:var(--institute-color,#526d98)}
+.ad-department-copy{display:grid;gap:8px;min-width:0;flex:1}
+.ad-department-copy>span:first-child{display:flex;align-items:baseline;gap:13px;min-width:0}
+.ad-department-copy b{font-size:16px;color:#17396f;white-space:nowrap}
+.ad-department-copy small{overflow:hidden;color:#667faa;font-size:13px;text-overflow:ellipsis;white-space:nowrap}
+.ad-department-track{display:block;width:100%;height:7px;overflow:hidden;border-radius:99px;background:#e7edf6}
+.ad-department-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#377bea,#2370ef);transition:width var(--er-motion-normal)}
+.ad-department-enrolled,.ad-department-share,.ad-department-students{font-variant-numeric:tabular-nums;text-align:right}
+.ad-department-enrolled{color:#1761d6;font-size:17px}
+.ad-department-share,.ad-department-students{font-size:15px;color:#19366b}
+.ad-department-arrow{color:#1f68dc}
+.ad-department-note{margin:13px 2px 0!important;color:#71839c!important;font-size:13px!important}
+@media(max-width:1100px){
+ .ad-departments-heading{flex-direction:column}
+ .ad-departments-controls{width:100%;justify-content:space-between}
+ .ad-department-summary{grid-template-columns:1fr 1fr}
+ .ad-department-summary>div:last-child{grid-column:1/-1}
+}
+@media(max-width:760px){
+ .admissions-dashboard .ad-departments-panel{padding:18px 16px}
+ .ad-departments-heading h2{font-size:25px!important}
+ .ad-departments-controls{align-items:stretch;flex-direction:column}
+ .ad-departments-controls .ui-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+ .ad-departments-controls .ui-tabs button{padding:8px 6px;font-size:12px}
+ .ad-department-sort .ui-select-field{width:100%;min-width:0}
+ .ad-department-summary{grid-template-columns:1fr;gap:10px}
+ .ad-department-summary>div,.ad-department-summary>div:last-child{grid-column:auto;min-height:88px;padding:14px 16px}
+ .ad-department-summary>div:last-child{padding-bottom:30px}
+ .ad-department-summary>div:last-child small{right:16px;bottom:10px}
+ .ad-department-summary small{max-width:130px}
+ .ad-department-list{min-width:790px}
+ .ad-department-list-head,.ad-department-row{grid-template-columns:34px minmax(350px,1fr) 95px 112px 85px 22px;gap:9px}
+ .ad-department-list-head,.ad-department-row.ui-button{padding-left:14px;padding-right:14px}
+}
+@media(prefers-reduced-motion:reduce){.ad-department-track i{transition:none}}

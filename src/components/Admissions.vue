@@ -24,6 +24,11 @@ const departmentOptions=computed(()=>departments(s.value.level));
 const selectedName=computed(()=>departmentOptions.value.find(i=>i.id===s.value.selected)?.short??'Все подразделения');
 const rows=computed(()=>departmentOptions.value.filter(i=>s.value.selected==='all'||i.id===s.value.selected).slice().sort((x,y)=>s.value.sort==='desc'?y.enrolled-x.enrolled:x.enrolled-y.enrolled));
 const top=computed(()=>departmentOptions.value.slice().sort((x,y)=>y.enrolled-x.enrolled).slice(0,5));
+const departmentTotal=computed(()=>departmentOptions.value.reduce((sum,item)=>sum+item.enrolled,0));
+const departmentLeader=computed(()=>departmentOptions.value.slice().sort((x,y)=>y.enrolled-x.enrolled)[0]);
+const departmentMax=computed(()=>Math.max(...departmentOptions.value.map(item=>item.enrolled),1));
+const departmentCoverage=computed(()=>{const total=vo.value?enrollment.value:a.college.enrolled;return total?departmentTotal.value/total*100:0;});
+function departmentShare(enrolled:number,students:number){return students?enrolled/students*100:0;}
 const programs=computed(()=>programRows(s.value.level,s.value.metric,s.value.mode,s.value.selected));
 const department=computed(()=>s.value.detail?.kind==='department'?departmentOptions.value.find(d=>d.id===s.value.detail!.id):undefined);
 const program=computed(()=>s.value.detail?.kind==='program'?allPrograms.find(p=>p.id===s.value.detail!.id):undefined);
@@ -121,7 +126,42 @@ function exportData(){
   <details v-if="vo&&current" class="ad-scenarios"><summary>Анализ результатов</summary><div v-for="scenarioItem in rules.scenarios" :key="scenarioItem.destination"><h3>{{scenarioItem.observation}}</h3><p>{{scenarioItem.action}}</p><UiButton class="ad-text-link" @click="scenario(scenarioItem.destination)">{{scenarioItem.path}} <Icon name="right" :size="16"/></UiButton></div></details>
  </template>
 
- <template v-else-if="s.section==='departments'"><UiPanel title="Приём по подразделениям" :description="`${s.year} · ${vo?'очная форма':'форма обучения в исходнике не указана'}`"><div class="ad-filters"><label>Подразделение<UiSelect v-model="state.selected" aria-label="Подразделение"><option value="all">Все подразделения</option><option v-for="d in departmentOptions" :key="d.id" :value="d.id">{{d.short}} · {{d.name}}</option></UiSelect></label><label>Сортировка<UiSelect v-model="state.sort" aria-label="Сортировка подразделений"><option value="desc">Зачислено · по убыванию</option><option value="asc">Зачислено · по возрастанию</option></UiSelect></label></div><div class="ad-table-wrap admission-bars"><table><thead><tr><th>Подразделение</th><th>Зачислено · {{s.year}}<small>{{vo?'Очная форма':'Форма не указана'}} · чел.</small></th><th>Общая численность<small>{{vo?'Очная форма':'Форма не указана'}} · чел.</small></th></tr></thead><tbody><tr v-for="d in rows" :key="d.id"><th><UiButton @click="openDepartment(d.id)"><InstituteBadge v-if="vo" :id="d.id"/><b v-else>{{d.short}}</b><span>{{d.name}}</span><Icon name="right" :size="16"/></UiButton></th><td>{{fmt(d.enrolled)}}</td><td>{{fmt(d.students)}}</td></tr></tbody></table></div><p v-if="vo" class="ad-muted">7 060 — все формы обучения. Доступная разбивка по институтам охватывает только очную форму.</p><p v-else class="ad-muted">По колледжам — 1 386, по географии — 1 390. Итог уточняется.</p><p class="ad-empty">История набора и план мест пока недоступны.</p></UiPanel></template>
+ <template v-else-if="s.section==='departments'">
+  <UiPanel class="ad-departments-panel">
+   <template #header>
+    <div class="ad-departments-heading">
+     <div><h2>Приём по подразделениям</h2><p>{{s.year}} · {{vo?'очная форма':'форма обучения в исходнике не указана'}}</p></div>
+     <div class="ad-departments-controls">
+      <UiTabs v-if="vo" model-value="onsite" label="Форма обучения" :items="[{value:'onsite',label:'Очная'},{value:'remote',label:'Заочная',disabled:true},{value:'mixed',label:'Очно-заочная',disabled:true}]"/>
+      <span v-else class="ad-form-status">Форма не указана</span>
+      <label class="ad-department-filter ad-department-sort"><span>Подразделение</span><UiSelect v-model="state.selected" aria-label="Подразделение"><option value="all">Все подразделения</option><option v-for="d in departmentOptions" :key="d.id" :value="d.id">{{d.short}} · {{d.name}}</option></UiSelect></label>
+      <label class="ad-department-sort"><span>Сортировка</span><UiSelect v-model="state.sort" aria-label="Сортировка подразделений"><option value="desc">По зачислению ↓</option><option value="asc">По зачислению ↑</option></UiSelect></label>
+     </div>
+    </div>
+   </template>
+   <div class="ad-department-summary">
+    <div><span class="ad-department-summary-icon"><Icon name="users" :size="25"/></span><div><strong>{{fmt(departmentTotal)}}</strong><span>зачислено</span></div><small>{{fmt(departmentCoverage)}}% от общего приёма</small></div>
+    <div><span class="ad-department-summary-icon"><Icon name="institutes" :size="25"/></span><div><strong>{{departmentOptions.length}}</strong><span>{{departmentOptions.length===5?'колледжей':'подразделений'}}</span></div></div>
+    <div><span class="ad-department-summary-icon"><Icon name="trophy" :size="25"/></span><div><strong>{{departmentLeader?.short}} · {{fmt(departmentLeader?.enrolled??0)}}</strong><span>лидер приёма</span></div><small>{{fmt((departmentLeader?.enrolled??0)/departmentTotal*100)}}% доступной разбивки</small></div>
+   </div>
+   <div class="ad-department-list-wrap">
+    <div class="ad-department-list">
+     <div class="ad-department-list-head" aria-hidden="true"><span>№</span><span>Подразделение</span><span>Зачислено</span><span>К численности</span><span>Всего</span><span></span></div>
+     <table class="admission-bars" role="presentation"><tbody>
+      <tr v-for="(d,index) in rows" :key="d.id"><td>
+       <UiButton class="ad-department-row" :class="{'is-leading':d.id===departmentLeader?.id}" :style="vo?instituteStyle(d.id):{}" @click="openDepartment(d.id)">
+        <span class="ad-department-number">{{index+1}}</span>
+        <span class="ad-department-identity"><InstituteBadge v-if="vo" :id="d.id" symbol-only/><span v-else class="ad-department-college-icon"><Icon name="institutes" :size="20"/></span><span class="ad-department-copy"><span><b>{{d.short}}</b><small>{{d.name}}</small></span><span class="ad-department-track"><i :style="{width:d.enrolled/departmentMax*100+'%'}"></i></span></span></span>
+        <strong class="ad-department-enrolled">{{fmt(d.enrolled)}}</strong><span class="ad-department-share">{{fmt(departmentShare(d.enrolled,d.students))}}%</span><span class="ad-department-students">{{fmt(d.students)}}</span><Icon class="ad-department-arrow" name="right" :size="18"/>
+       </UiButton>
+      </td></tr>
+     </tbody></table>
+    </div>
+   </div>
+   <p v-if="vo" class="ad-department-note">7 060 — все формы обучения. Список показывает все {{departmentOptions.length}} подразделений из доступной разбивки по очной форме.</p>
+   <p v-else class="ad-department-note">По колледжам — 1 386, по географии — 1 390. Итог уточняется; показаны все {{departmentOptions.length}} колледжей.</p>
+  </UiPanel>
+ </template>
 
  <template v-else-if="s.section==='programs'"><div class="ad-filters"><label>Подразделение<UiSelect v-model="state.selected" aria-label="Подразделение"><option value="all">Все подразделения</option><option v-for="d in departmentOptions" :key="d.id" :value="d.id">{{d.short}}</option></UiSelect></label><UiTabs v-model="state.mode" label="Режим программ" :items="[{value:'leaders',label:'Лидеры'},{value:'new',label:'Новые программы',disabled:!vo}]"/><label v-if="s.mode==='leaders'">Показатель<UiSelect v-model="state.metric" aria-label="Рейтинг программ"><option value="applications">По заявлениям</option><option value="competition">По конкурсу на бюджет</option><option v-if="vo" value="score">По баллу ЕГЭ · технические</option></UiSelect></label></div><template v-if="s.mode==='new'"><UiPanel v-for="programLevel in ['Базовое высшее образование','Специализированное высшее образование']" :key="programLevel" :title="programLevel" description="Новые программы · 2026"><ProgramList :items="programs.filter(p=>p.level===programLevel)" @program="openProgram" @department="openShort"/></UiPanel><p class="ad-empty">Статистика набора по новым программам пока недоступна.</p></template><UiPanel v-else :title="metricLabels[s.metric]" :description="`${vo?'Топ-5':'Топ-6'} · ${s.year} · ${metricUnits[s.metric]} · ${s.selected==='all'?'все подразделения':selectedName}`"><template v-if="!vo&&s.metric==='competition'"><div class="ad-detail-number"><strong>7,2</strong><span>чел./место · общий конкурс на бюджет СПО</span></div><p class="ad-empty">Рейтинг конкурса по программам СПО не предоставлен. Доступен только общий показатель.</p></template><ProgramList v-else :items="programs" :college="!vo" @program="openProgram" @department="openShort"/><p class="ad-muted">Показаны только программы-лидеры.</p><p v-if="s.metric==='applications'&&vo" class="ad-muted">Единица исходного рейтинга — «чел.»; методика подсчёта уточняется.</p></UiPanel></template>
 
