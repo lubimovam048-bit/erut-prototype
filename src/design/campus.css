@@ -73,3 +73,10 @@ body:has(.map-expanded){overflow:hidden}
  .campus-map-v2:not(.is-compact) .sochi-inset>svg{width:12px;flex-shrink:0}
  .campus-map-v2:not(.is-compact) .map-credits{right:12px;bottom:60px}
 }
+/* Every row shares fixed label/value columns, independent of the number of digits. */
+.population-row{grid-template-columns:124px minmax(0,1fr) 48px;column-gap:8px}
+.population-row>.population-name{min-width:0;overflow-wrap:break-word}
+.population-row>b{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.population-total{display:grid;grid-template-columns:124px minmax(0,1fr) 48px;gap:8px;border-top:1px solid #dce5f2;margin-top:10px;padding:12px 0;font-size:14px}
+.population-total>strong{grid-column:3;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:380px){.population-row,.population-total{grid-template-columns:108px minmax(0,1fr) 48px}}

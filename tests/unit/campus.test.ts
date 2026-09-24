@@ -34,3 +34,9 @@ it('links to platform sections and closes the expanded workspace with Escape',as
 });
 
 it('retains the selected campus when switching analytical modes',async()=>{const p=mount(InfrastructureMap,{props:{initialCampusId:'roat'}});await p.findAll('.campus-layer-toolbar button')[1].trigger('click');expect(p.findComponent({name:'CampusMap'}).props('campusId')).toBe('roat');p.unmount();});
+
+it('shows a total for the currently selected campus and for the university',async()=>{
+ const p=mount(CampusPopulation);expect(p.get('.population-total').text()).toContain('32 085');
+ await p.setProps({campusId:'roat'});expect(p.get('.population-total').text()).toContain('9 742');
+ await p.setProps({campusId:'sochi'});expect(p.find('.population-total').exists()).toBe(false);p.unmount();
+});

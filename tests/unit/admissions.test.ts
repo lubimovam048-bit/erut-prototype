@@ -11,8 +11,8 @@ const click=async(page:ReturnType<typeof mount>,label:string)=>{const b=page.fin
 describe('admissions specification',()=>{
  it('shows both histories and all mandatory overview blocks simultaneously',()=>{
   const page=mount(Admissions);expect(page.findAllComponents(LineChart)).toHaveLength(2);expect(page.findAll('.ad-kpi')).toHaveLength(5);expect(page.findAll('.ad-top-list button')).toHaveLength(5);
-  for(const text of ['Все формы обучения','очная форма','География набора','Участники СВО','Особая квота','Целевой приём','Иностранные граждане'])expect(page.text()).toContain(text);
-  expect(page.text()).not.toContain('Общий контингент');
+  for(const text of ['Все формы обучения','очная форма','География набора','Приём по квотам','СВО и семьи','Средний балл ЕГЭ по вузам'])expect(page.text()).toContain(text);
+  expect(page.text()).not.toContain('Общий контингент');expect(page.findAll('.university-score')).toHaveLength(9);expect(page.findAll('.ad-kpi')[4]!.text()).toContain('441');expect(page.findAll('.ad-kpi')[4]!.text()).toContain('38,1%');
  });
  it('keeps an old year honest when clicking its enrollment point',async()=>{
   const page=mount(Admissions);page.findAllComponents(LineChart)[0]!.vm.$emit('select',1);await flushPromises();
@@ -20,7 +20,7 @@ describe('admissions specification',()=>{
   await click(page,'Назад');expect(page.find('.ad-notice').exists()).toBe(false);expect(page.findAllComponents(LineChart)).toHaveLength(2);expect(page.get('select[aria-label="Год кампании"]').element.value).toBe('2026');
  });
  it('opens a contextual quota and separates target places from enrolled',async()=>{
-  const page=mount(Admissions);await click(page,'Целевой приём');expect(page.text()).toContain('Целевой приём по заказчикам');expect(page.text()).toContain('217');expect(page.text()).toContain('110');expect(page.text()).toContain('−180');expect(page.text()).not.toContain('481,7');expect(page.text()).not.toContain('1 147');
+  const page=mount(Admissions);await click(page,'Приём по квотам');await click(page,'Целевой приём');expect(page.text()).toContain('Целевой приём по заказчикам');expect(page.text()).toContain('217');expect(page.text()).toContain('110');expect(page.text()).toContain('−180');expect(page.text()).not.toContain('481,7');expect(page.text()).not.toContain('1 147');
   await click(page,'Назад');await click(page,'Особая квота');expect(page.text()).toContain('Сироты');expect(page.text()).toContain('Распределение 56');
  });
  it('restores department filter and sort across department → program → back',async()=>{
@@ -44,7 +44,7 @@ describe('admissions specification',()=>{
   const page=mount(Admissions,{props:{initialInstitute:'ief'}});await page.get('select[aria-label="Год кампании"]').setValue('2025');await page.get('select[aria-label="Уровень образования"]').setValue('СПО');expect(page.get('select[aria-label="Год кампании"]').element.value).toBe('2025');expect(page.text()).toContain('сброшены');expect(page.text()).toContain('Нет детализации');expect(page.find('.ad-active-filters').exists()).toBe(false);
  });
  it('has a dedicated foreign empty state and contextual regional detail',async()=>{
-  const page=mount(Admissions);await click(page,'Иностранные граждане');expect(page.text()).toContain('Нет данных об иностранных гражданах');expect(page.text()).toContain('Число стран');await click(page,'Назад');await click(page,'Калужская область');expect(page.text()).toContain('99');expect(page.text()).toContain('по подразделениям и программам не предоставлено');
+  const page=mount(Admissions);await click(page,'Иностранный набор · нет данных');expect(page.text()).toContain('Нет данных об иностранных гражданах');expect(page.text()).toContain('Число стран');await click(page,'Назад');await click(page,'Калужская область');expect(page.text()).toContain('99');expect(page.text()).toContain('по подразделениям и программам не предоставлено');
  });
  it('exports current program ranking, filters, units and unknown values',async()=>{
   let blob:Blob|undefined;vi.stubGlobal('URL',Object.assign(URL,{createObjectURL:vi.fn((b:Blob)=>{blob=b;return 'blob:test';}),revokeObjectURL:vi.fn()}));vi.spyOn(HTMLAnchorElement.prototype,'click').mockImplementation(()=>{});
