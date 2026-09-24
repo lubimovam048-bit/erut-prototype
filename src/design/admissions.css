@@ -178,23 +178,23 @@
 .ad-kpi-delta svg{flex-shrink:0;stroke-width:1.5}
 .admissions-dashboard .ad-kpis .ad-kpi .ad-kpi-note{z-index:1;color:#617ba5;font-size:13px;font-style:normal;line-height:1.4}
 .ad-kpi-spark{z-index:0;width:100%;height:43px;overflow:visible}
-.ad-kpi-spark polyline{fill:none;stroke:#2681f2;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.ad-kpi-spark::after{content:""}
+.ad-kpi-spark-line{fill:none;stroke:#2681f2;stroke-width:2.15;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.ad-kpi-spark-area{fill:#2681f2;opacity:.08}
+.ad-kpi-spark-dot{fill:#fff;stroke:#2681f2;stroke-width:1.4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 2px #2681f2)}
 .ad-kpi--score .ad-kpi-head i{border-color:#e8e1ff;background:#f5f1ff;color:#7551eb}
-.ad-kpi--score .ad-kpi-spark polyline{stroke:#7651eb}
+.ad-kpi--score .ad-kpi-spark-line{stroke:#7651eb}.ad-kpi--score .ad-kpi-spark-area{fill:#7651eb}.ad-kpi--score .ad-kpi-spark-dot{stroke:#7651eb;filter:drop-shadow(0 0 2px #7651eb)}
 .ad-kpi--region .ad-kpi-head i{border-color:#ccecea;background:#edfbfa;color:#10a9a2}
+.ad-kpi--region .ad-kpi-spark-line{stroke:#18b3ac}.ad-kpi--region .ad-kpi-spark-area{fill:#18b3ac}.ad-kpi--region .ad-kpi-spark-dot{stroke:#18b3ac;filter:drop-shadow(0 0 2px #18b3ac)}
 .ad-kpi--quota .ad-kpi-head i{border-color:#ffe0c9;background:#fff5ed;color:#ff873c}
-.ad-kpi-progress{z-index:1;display:flex;width:100%;align-items:center;gap:10px;margin-top:auto}
-.ad-kpi-progress>span{height:9px;overflow:hidden;flex:1;border-radius:99px;background:#e6edf7}
-.ad-kpi-progress>span>i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#20b2ac,#2acac0)}
-.ad-kpi-progress>b{min-width:35px;color:#17335f;font-size:13px;font-weight:700;text-align:right}
-.ad-kpi--quota .ad-kpi-progress>span>i{background:linear-gradient(90deg,#ff8b43,#ffae73)}
+.ad-kpi--quota .ad-kpi-spark-line{stroke:#ff873c}.ad-kpi--quota .ad-kpi-spark-area{fill:#ff873c}.ad-kpi--quota .ad-kpi-spark-dot{stroke:#ff873c;filter:drop-shadow(0 0 2px #ff873c)}
 .admissions-dashboard .ad-kpis .ad-kpi--primary{border-color:#2d73ec;background:radial-gradient(circle at 92% 8%,#4aa1ff55,transparent 38%),linear-gradient(145deg,#115ae1,#1475f5);box-shadow:0 14px 30px #1768e22b;color:#fff}
 .admissions-dashboard .ad-kpis .ad-kpi--primary:hover{border-color:#0d58dc;box-shadow:0 18px 34px #1768e23d}
 .ad-kpi--primary .ad-kpi-head b,.admissions-dashboard .ad-kpis .ad-kpi--primary>strong,.admissions-dashboard .ad-kpis .ad-kpi--primary .ad-kpi-note{color:#fff}
 .ad-kpi--primary .ad-kpi-head i{border-color:#ffffff3d;background:#ffffff28;color:#fff}
-.ad-kpi--primary .ad-kpi-spark{opacity:.78}
-.ad-kpi--primary .ad-kpi-spark polyline{stroke:#fff}
+.ad-kpi--primary .ad-kpi-spark{opacity:.94}
+.ad-kpi--primary .ad-kpi-spark-line{stroke:#65e6ff}
+.ad-kpi--primary .ad-kpi-spark-area{fill:#28c8ff;opacity:.22}
+.ad-kpi--primary .ad-kpi-spark-dot{fill:#fff;stroke:#fff;filter:drop-shadow(0 0 3px #fff)}
 .admissions-dashboard .ad-kpis .ad-kpi-missing>strong{font-size:21px;letter-spacing:0;white-space:normal}
 @media(min-width:1600px){.admissions-dashboard .ad-kpis .ad-kpi{min-height:238px;padding:24px 22px 19px}.ad-kpi-head b{font-size:15px}.ad-kpi-head i{width:46px;height:46px;flex-basis:46px}.ad-kpi-spark{height:50px}}
 @media(max-width:1100px){.admissions-dashboard .ad-kpis .ad-kpi{min-height:205px}}

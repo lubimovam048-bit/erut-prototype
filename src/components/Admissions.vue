@@ -70,7 +70,10 @@ const foreignText='Нет данных об иностранных гражда�
 function visibleProgramMetrics(p:Program):Partial<Record<Metric,number|null>>{const metrics=programMetrics(p);return vo.value?metrics:{applications:metrics.applications,competition:metrics.competition};}
 const metricNames:Record<Metric,string>={applications:'Заявления',competition:'Конкурс на бюджет',score:'ЕГЭ · бюджет'};
 function regionValue(name:string){return name==='Москва и МО'?(vo.value?a.moscow:a.college.moscow):name==='Другие регионы'?(vo.value?a.otherRegions:a.college.otherRegions):a.regions.find(r=>r.name===name)?.value??null;}
-function miniSpark(values:number[]){const min=Math.min(...values),max=Math.max(...values),range=max-min||1;return values.map((value,index)=>`${3+index*(94/Math.max(values.length-1,1))},${33-(value-min)/range*30}`).join(' ');}
+function sparkPoints(values:number[]){const source=values.length>1?values:[values[0]??0,values[0]??0];const min=Math.min(...source),max=Math.max(...source),range=max-min||1;return source.map((value,index)=>({x:3+index*(94/Math.max(source.length-1,1)),y:33-(value-min)/range*30}));}
+function miniSpark(values:number[]){const points=sparkPoints(values);let path=`M ${points[0]!.x} ${points[0]!.y}`;for(let index=1;index<points.length;index++){const previous=points[index-1]!,point=points[index]!,middle=(previous.x+point.x)/2;path+=` C ${middle} ${previous.y}, ${middle} ${point.y}, ${point.x} ${point.y}`;}return path;}
+function miniSparkArea(values:number[]){return `${miniSpark(values)} L 97 36 L 3 36 Z`;}
+function miniSparkEnd(values:number[]){return sparkPoints(values).at(-1)!.y;}
 function scenario(destination:string){if(destination==='target')openQuota('target');else if(destination==='geography'||destination==='foreign')navigate({section:'composition',composition:destination});else navigate({section:destination as Section});}
 function exportData(){
  const rowsOut:(string|number|null)[][]=[['Раздел',title.value],['Год',s.value.year],['Уровень',s.value.level],['Подразделение',selectedName.value],['Порядок',s.value.sort==='desc'?'По убыванию зачисления':'По возрастанию зачисления'],['Режим',s.value.section==='programs'?(s.value.mode==='new'?'Новые программы':metricLabels[s.value.metric]):s.value.section==='composition'?s.value.composition:sectionNames[s.value.section]],['Источник',source.value],['Обновлено',rules.updated],[]];
@@ -112,31 +115,31 @@ function exportData(){
     <span class="ad-kpi-head"><b>Подано заявлений</b><i><Icon name="source" :size="21"/></i></span>
     <strong>{{current?(vo?'28':'8,3'):'Нет данных'}}<small v-if="current">тыс.</small></strong>
     <span v-if="current" class="ad-kpi-meta"><em class="ad-kpi-delta"><Icon :name="(vo?a.applicationGrowth:a.college.applicationGrowth)>=0?'up':'downArrow'" :size="15"/>{{(vo?a.applicationGrowth:a.college.applicationGrowth)>0?'+':''}}{{fmt(vo?a.applicationGrowth:a.college.applicationGrowth)}}%</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">История не предоставлена</em>
-    <svg v-if="current" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline :points="miniSpark([100,vo?128:102.6])"/></svg>
+    <svg v-if="current" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path class="ad-kpi-spark-area" :d="miniSparkArea([100,vo?128:102.6])"/><path class="ad-kpi-spark-line" :d="miniSpark([100,vo?128:102.6])"/><circle class="ad-kpi-spark-dot" cx="97" :cy="miniSparkEnd([100,vo?128:102.6])" r="2.2"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--primary" @click="navigate({section:'departments',selected:'all',sort:'desc'})">
     <span class="ad-kpi-head"><b>Зачислено студентов</b><i><Icon name="admissions" :size="22"/></i></span>
     <strong>{{vo?fmt(enrollment!):'1,39'}}<small v-if="!vo">тыс.</small></strong>
     <em class="ad-kpi-note">{{vo?'Все формы обучения':'+3,3% · округлённо'}}</em>
-    <svg v-if="vo" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline :points="miniSpark(a.enrollmentHistory.slice(0,a.years.indexOf(s.year)+1))"/></svg>
+    <svg class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path class="ad-kpi-spark-area" :d="miniSparkArea(vo?a.enrollmentHistory.slice(0,a.years.indexOf(s.year)+1):[100,100+a.college.growth])"/><path class="ad-kpi-spark-line" :d="miniSpark(vo?a.enrollmentHistory.slice(0,a.years.indexOf(s.year)+1):[100,100+a.college.growth])"/><circle class="ad-kpi-spark-dot" cx="97" :cy="miniSparkEnd(vo?a.enrollmentHistory.slice(0,a.years.indexOf(s.year)+1):[100,100+a.college.growth])" r="2.2"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--score" @click="vo?navigate({section:'quality'}):navigate({section:'programs',metric:'competition',mode:'leaders'})">
     <span class="ad-kpi-head"><b>{{vo?'Средний балл ЕГЭ':'Конкурс на бюджет'}}</b><i><Icon name="trend" :size="21"/></i></span>
     <strong>{{vo?fmt(exam!):'7,2'}}</strong>
     <span v-if="vo&&current" class="ad-kpi-meta"><em class="ad-kpi-delta"><Icon :name="a.scoreGrowth>=0?'up':'downArrow'" :size="15"/>{{a.scoreGrowth>0?'+':''}}{{fmt(a.scoreGrowth)}}</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">{{vo?'Бюджет · '+s.year:'чел./место'}}</em>
-    <svg v-if="vo" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline :points="miniSpark(a.scoreHistory.slice(0,a.years.indexOf(s.year)+1))"/></svg>
+    <svg class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path class="ad-kpi-spark-area" :d="miniSparkArea(vo?a.scoreHistory.slice(0,a.years.indexOf(s.year)+1):[0,a.college.competition])"/><path class="ad-kpi-spark-line" :d="miniSpark(vo?a.scoreHistory.slice(0,a.years.indexOf(s.year)+1):[0,a.college.competition])"/><circle class="ad-kpi-spark-dot" cx="97" :cy="miniSparkEnd(vo?a.scoreHistory.slice(0,a.years.indexOf(s.year)+1):[0,a.college.competition])" r="2.2"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--region" :class="{'ad-kpi-missing':!current}" @click="navigate({section:'composition',composition:'geography'})">
     <span class="ad-kpi-head"><b>Вне Москвы и МО</b><i><Icon name="pin" :size="21"/></i></span>
     <strong>{{current?(vo?'34%':'18%'):'Нет данных'}}</strong>
     <em class="ad-kpi-note">{{current?fmt(vo?a.otherRegions:a.college.otherRegions)+' человек':'История не предоставлена'}}</em>
-    <span v-if="current" class="ad-kpi-progress"><span><i :style="{width:(vo?34:18)+'%'}"></i></span><b>{{vo?'34%':'18%'}}</b></span>
+    <svg v-if="current" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path class="ad-kpi-spark-area" :d="miniSparkArea([0,vo?34:18])"/><path class="ad-kpi-spark-line" :d="miniSpark([0,vo?34:18])"/><circle class="ad-kpi-spark-dot" cx="97" :cy="miniSparkEnd([0,vo?34:18])" r="2.2"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--quota" :class="{'ad-kpi-missing':!current}" @click="vo?navigate({section:'composition',composition:'quotas'}):openQuota('priority')">
     <span class="ad-kpi-head"><b>{{vo?'Приём по квотам':'Первоочередной приём'}}</b><i><Icon name="users" :size="21"/></i></span>
     <strong>{{current?fmt(quotaTotal):'Нет данных'}}</strong>
-    <em class="ad-kpi-note">{{current?(vo?fmt(svoQuota)+' — СВО и семьи':'+14,1% · к прошлому году'):'История не предоставлена'}}</em>
-    <span v-if="current&&vo" class="ad-kpi-progress"><span><i :style="{width:Math.min(svoShare,100)+'%'}"></i></span><b>{{fmt(svoShare)}}%</b></span>
+    <em class="ad-kpi-note">{{current?(vo?fmt(svoQuota)+' — СВО и семьи · '+fmt(svoShare)+'% квот':'+14,1% · к прошлому году'):'История не предоставлена'}}</em>
+    <svg v-if="current" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><path class="ad-kpi-spark-area" :d="miniSparkArea(vo?[0,svoShare]:[100,100+a.college.priority.change])"/><path class="ad-kpi-spark-line" :d="miniSpark(vo?[0,svoShare]:[100,100+a.college.priority.change])"/><circle class="ad-kpi-spark-dot" cx="97" :cy="miniSparkEnd(vo?[0,svoShare]:[100,100+a.college.priority.change])" r="2.2"/></svg>
    </UiButton>
   </div>
   <div class="ad-overview-grid">
