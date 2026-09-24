@@ -184,7 +184,7 @@ function exportData(){
     </div>
    </template>
    <div class="ad-department-summary">
-    <div><span class="ad-department-summary-icon"><Icon name="users" :size="25"/></span><div><strong>{{fmt(departmentTotal)}}</strong><span>зачислено</span></div><small>{{fmt(departmentCoverage)}}% от общего приёма</small></div>
+    <div><span class="ad-department-summary-icon"><Icon name="users" :size="25"/></span><div><strong>{{fmt(vo?(enrollment??a.enrolled):a.college.enrolled)}}</strong><span>{{vo?'зачислено · все формы':'зачислено'}}</span></div><small>{{fmt(departmentTotal)}} в разбивке<br>{{fmt(departmentCoverage)}}% охвата</small></div>
     <div><span class="ad-department-summary-icon"><Icon name="institutes" :size="25"/></span><div><strong>{{departmentOptions.length}}</strong><span>{{departmentOptions.length===5?'колледжей':'подразделений'}}</span></div></div>
     <div><span class="ad-department-summary-icon"><Icon name="trophy" :size="25"/></span><div><strong>{{departmentLeader?.short}} · {{fmt(departmentLeader?.enrolled??0)}}</strong><span>лидер приёма</span></div><small>{{fmt((departmentLeader?.enrolled??0)/departmentTotal*100)}}% доступной разбивки</small></div>
    </div>
