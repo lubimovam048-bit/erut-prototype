@@ -260,3 +260,30 @@
 .ad-history-achievement>span{color:#677ea4;font-size:12px;line-height:1.3}
 @media(max-width:900px){.ad-history-body{grid-template-columns:190px minmax(0,1fr);gap:15px}.ad-history-metric>strong{font-size:46px}.ad-history-panel .trend-chart{height:220px;min-height:220px}}
 @media(max-width:760px){.admissions-dashboard .ad-history-panel{padding:18px 16px}.ad-history-head{flex-direction:column}.ad-history-body{grid-template-columns:1fr}.ad-history-metric{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px 16px}.ad-history-metric>strong{font-size:43px}.ad-history-comparison{align-self:center}.ad-history-achievement{grid-column:1/-1;max-width:390px}.ad-history-panel .trend-chart{height:210px;min-height:210px}}
+
+/* Overview layout: two compact history cards beside one double-height ranking. */
+@media(min-width:1101px){
+ .ad-overview-grid--vo .ad-history-panel--enrollment{grid-column:1;grid-row:1}
+ .ad-overview-grid--vo .ad-history-panel--score{grid-column:1;grid-row:2}
+ .ad-overview-grid--vo .ad-overview-departments{grid-column:2;grid-row:1 / span 2;align-self:stretch;display:flex;flex-direction:column}
+ .ad-overview-grid--vo .ad-history-body{grid-template-columns:150px minmax(0,1fr);gap:14px}
+ .ad-overview-grid--vo .ad-history-metric{gap:11px}
+ .ad-overview-grid--vo .ad-history-metric>strong{font-size:48px}
+ .ad-overview-grid--vo .ad-history-comparison{gap:6px}
+ .ad-overview-grid--vo .ad-history-comparison>span{padding:6px 9px;font-size:15px}
+ .ad-overview-grid--vo .ad-history-panel .trend-chart{height:210px;min-height:210px}
+ .ad-overview-grid--vo .ad-history-achievement{grid-template-columns:23px 25px minmax(0,1fr) 14px;gap:6px;padding:9px}
+ .ad-overview-grid--vo .ad-history-achievement>strong{font-size:21px}
+ .ad-overview-grid--vo .ad-history-achievement>span{font-size:11px}
+ .ad-overview-grid--vo .ad-top-panel-head{align-items:flex-start;flex-direction:column;gap:14px}
+ .ad-overview-grid--vo .ad-top-summary{width:100%;min-width:0}
+ .ad-overview-grid--vo .ad-top-list-wrap{flex:1}
+ .ad-overview-grid--vo .ad-overview-departments .ad-top-list{height:100%;min-width:0;grid-template-rows:repeat(5,minmax(62px,1fr))}
+ .ad-overview-grid--vo .ad-overview-departments .ad-top-list>button.ad-top-row{grid-template-columns:30px 38px 48px minmax(70px,1fr) 58px 43px 16px;gap:8px;padding:9px 10px}
+}
+@media(max-width:1100px){
+ .ad-overview-grid--vo{grid-template-columns:minmax(0,1fr)}
+ .ad-overview-grid--vo .ad-history-panel--enrollment{grid-column:1;grid-row:1}
+ .ad-overview-grid--vo .ad-history-panel--score{grid-column:1;grid-row:2}
+ .ad-overview-grid--vo .ad-overview-departments{grid-column:1;grid-row:3}
+}
