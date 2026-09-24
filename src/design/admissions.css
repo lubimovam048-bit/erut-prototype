@@ -293,3 +293,13 @@
  .ad-overview-grid--vo .ad-history-panel--score{grid-column:1;grid-row:2}
  .ad-overview-grid--vo .ad-overview-departments{grid-column:1;grid-row:3}
 }
+
+/* Overview: admissions comparison and geography share one row. */
+.ad-comparison-panel,.ad-geography-panel{align-self:stretch;display:flex;flex-direction:column}
+.ad-comparison-panel>.panel-head,.ad-geography-panel>.panel-head{align-items:flex-start}
+.ad-comparison-panel>.panel-head>div{width:auto;min-width:0;flex:1}
+.ad-comparison-panel>.panel-head .ad-text-link{flex-shrink:0;white-space:nowrap}
+.ad-comparison-panel>.panel-head h2,.ad-geography-panel>.panel-head h2{font-size:20px;font-weight:550}
+.ad-comparison-panel>.university-comparison,.ad-geography-panel>.ad-geography{flex:1}
+.ad-geography-panel .ad-inline-summary{margin-top:14px;padding:10px 12px;border-radius:11px;background:#f5f8fd}
+.ad-geography-panel .ad-inline-summary .ad-text-link{color:#748baa;font-size:12px;font-weight:500}
