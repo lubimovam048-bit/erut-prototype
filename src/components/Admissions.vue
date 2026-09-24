@@ -111,7 +111,7 @@ function exportData(){
    <UiButton class="ad-kpi ad-kpi--applications" :class="{'ad-kpi-missing':!current}" @click="navigate({section:'programs',metric:'applications',mode:'leaders',selected:'all'})">
     <span class="ad-kpi-head"><b>Подано заявлений</b><i><Icon name="source" :size="21"/></i></span>
     <strong>{{current?(vo?'28':'8,3'):'Нет данных'}}<small v-if="current">тыс.</small></strong>
-    <span v-if="current" class="ad-kpi-meta"><em class="ad-kpi-delta">↗ {{vo?'+28%':'+2,6%'}}</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">История не предоставлена</em>
+    <span v-if="current" class="ad-kpi-meta"><em class="ad-kpi-delta"><Icon :name="(vo?a.applicationGrowth:a.college.applicationGrowth)>=0?'up':'downArrow'" :size="15"/>{{(vo?a.applicationGrowth:a.college.applicationGrowth)>0?'+':''}}{{fmt(vo?a.applicationGrowth:a.college.applicationGrowth)}}%</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">История не предоставлена</em>
     <svg v-if="current" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline :points="miniSpark([100,vo?128:102.6])"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--primary" @click="navigate({section:'departments',selected:'all',sort:'desc'})">
@@ -123,7 +123,7 @@ function exportData(){
    <UiButton class="ad-kpi ad-kpi--score" @click="vo?navigate({section:'quality'}):navigate({section:'programs',metric:'competition',mode:'leaders'})">
     <span class="ad-kpi-head"><b>{{vo?'Средний балл ЕГЭ':'Конкурс на бюджет'}}</b><i><Icon name="trend" :size="21"/></i></span>
     <strong>{{vo?fmt(exam!):'7,2'}}</strong>
-    <span v-if="vo&&current" class="ad-kpi-meta"><em class="ad-kpi-delta">↗ +5,7</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">{{vo?'Бюджет · '+s.year:'чел./место'}}</em>
+    <span v-if="vo&&current" class="ad-kpi-meta"><em class="ad-kpi-delta"><Icon :name="a.scoreGrowth>=0?'up':'downArrow'" :size="15"/>{{a.scoreGrowth>0?'+':''}}{{fmt(a.scoreGrowth)}}</em><small>к 2025 году</small></span><em v-else class="ad-kpi-note">{{vo?'Бюджет · '+s.year:'чел./место'}}</em>
     <svg v-if="vo" class="ad-kpi-spark" viewBox="0 0 100 36" preserveAspectRatio="none" aria-hidden="true"><polyline :points="miniSpark(a.scoreHistory.slice(0,a.years.indexOf(s.year)+1))"/></svg>
    </UiButton>
    <UiButton class="ad-kpi ad-kpi--region" :class="{'ad-kpi-missing':!current}" @click="navigate({section:'composition',composition:'geography'})">

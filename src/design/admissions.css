@@ -170,11 +170,12 @@
 .ad-kpi-head{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px}
 .ad-kpi-head b{min-width:0;color:#102950;font-size:14px;font-weight:600;line-height:1.35}
 .ad-kpi-head i{width:42px;height:42px;display:grid;place-items:center;flex:0 0 42px;border:1px solid #d9e8fb;border-radius:13px;background:#f0f6ff;color:#2675e8;font-style:normal}
-.admissions-dashboard .ad-kpis .ad-kpi>strong{z-index:1;margin-top:7px;color:#10264c;font-size:clamp(31px,2.7vw,45px);font-weight:600;letter-spacing:-1.2px;line-height:1;white-space:nowrap}
-.admissions-dashboard .ad-kpis .ad-kpi>strong small{margin-left:5px;color:inherit;font-size:.55em;font-weight:600;letter-spacing:-.3px}
+.admissions-dashboard .ad-kpis .ad-kpi>strong{z-index:1;margin-top:7px;color:#10264c;font-size:clamp(31px,2.7vw,45px);font-weight:400;letter-spacing:-1px;line-height:1;white-space:nowrap}
+.admissions-dashboard .ad-kpis .ad-kpi>strong small{margin-left:5px;color:inherit;font-size:.55em;font-weight:400;letter-spacing:-.2px}
 .ad-kpi-meta{z-index:1;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .ad-kpi-meta>small{color:#617ca7;font-size:12px}
-.ad-kpi-delta{padding:6px 10px;border-radius:12px;background:#dcf5e7;color:#12854a;font-size:13px;font-style:normal;font-weight:700;white-space:nowrap}
+.ad-kpi-delta{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:12px;background:#dcf5e7;color:#12854a;font-size:13px;font-style:normal;font-weight:400;white-space:nowrap}
+.ad-kpi-delta svg{flex-shrink:0;stroke-width:1.5}
 .admissions-dashboard .ad-kpis .ad-kpi .ad-kpi-note{z-index:1;color:#617ba5;font-size:13px;font-style:normal;line-height:1.4}
 .ad-kpi-spark{z-index:0;width:100%;height:43px;overflow:visible}
 .ad-kpi-spark polyline{fill:none;stroke:#2681f2;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
