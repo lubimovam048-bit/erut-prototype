@@ -49,3 +49,22 @@
 .budget-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;flex-shrink:0}.budget-tools .data-note{margin:0!important;max-width:100%}.budget-tools .ui-button{padding-inline:0}.budget-tools .data-note[open]{flex-basis:100%}
 @media(min-width:1200px) and (min-height:620px){.workspace-finance .focus-panels .trend-chart{min-height:160px;flex:1 1 160px}.workspace-finance .focus-panels>.panel{min-height:350px}}
 @media(min-width:1200px) and (min-height:620px){.workspace-finance .focus-panels .chart-insight{margin-top:4px}.workspace-finance .focus-panels>.panel>.focus-more{margin-top:4px}}
+
+/* Cards follow their content on touch screens instead of retaining desktop row heights. */
+@media(max-width:1199px){
+ .project-grid{grid-auto-rows:auto}
+ .project-card{min-height:0;height:auto}
+ .project-card h2{min-height:0}
+ .project-card-footer{margin-top:22px}
+}
+@media(max-width:760px){
+ .project-card{padding:22px}
+ .project-card-top{margin-bottom:14px}
+ .project-card h2{font-size:22px;line-height:1.35}
+ .event-list-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}
+ .event-list-item>.event-date{grid-column:1/-1;width:auto}
+ .event-list-item>div{min-width:0}
+ .event-list-item h3{overflow-wrap:break-word}
+ .knowledge-header h2,.modal-body>h2,.institute-modal-header h2{overflow-wrap:break-word}
+ .panel-head{flex-wrap:wrap;gap:12px}
+}

@@ -44,7 +44,7 @@ describe('admissions specification',()=>{
   const page=mount(Admissions,{props:{initialInstitute:'ief'}});await page.get('select[aria-label="Год кампании"]').setValue('2025');await page.get('select[aria-label="Уровень образования"]').setValue('СПО');expect(page.get('select[aria-label="Год кампании"]').element.value).toBe('2025');expect(page.text()).toContain('сброшены');expect(page.text()).toContain('Нет детализации');expect(page.find('.ad-active-filters').exists()).toBe(false);
  });
  it('has a dedicated foreign empty state and contextual regional detail',async()=>{
-  const page=mount(Admissions);await click(page,'Иностранные граждане');expect(page.text()).toContain('83 страны не характеризуют');expect(page.text()).toContain('Число стран');await click(page,'Назад');await click(page,'Калужская область');expect(page.text()).toContain('99');expect(page.text()).toContain('по подразделениям и программам не предоставлено');
+  const page=mount(Admissions);await click(page,'Иностранные граждане');expect(page.text()).toContain('Нет данных об иностранных гражданах');expect(page.text()).toContain('Число стран');await click(page,'Назад');await click(page,'Калужская область');expect(page.text()).toContain('99');expect(page.text()).toContain('по подразделениям и программам не предоставлено');
  });
  it('exports current program ranking, filters, units and unknown values',async()=>{
   let blob:Blob|undefined;vi.stubGlobal('URL',Object.assign(URL,{createObjectURL:vi.fn((b:Blob)=>{blob=b;return 'blob:test';}),revokeObjectURL:vi.fn()}));vi.spyOn(HTMLAnchorElement.prototype,'click').mockImplementation(()=>{});
