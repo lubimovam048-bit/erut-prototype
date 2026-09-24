@@ -37,6 +37,9 @@ describe('admissions specification',()=>{
   expect(page.text()).not.toContain('ЕГЭ');expect(page.text()).not.toContain('Особая квота');expect(page.text()).not.toContain('Чемпионат');expect(page.text()).toContain('7,2');
   await click(page,'Первоочередной приём');expect(page.text()).toContain('Дети участников боевых действий');expect(page.text()).toContain('89');
  });
+ it('does not expose EGE in a college program card',async()=>{
+  const page=mount(Admissions);await page.get('select[aria-label="Уровень образования"]').setValue('СПО');await click(page,'Юриспруденция');expect(page.text()).not.toContain('ЕГЭ');expect(page.text()).toContain('769');expect(page.findAll('.ad-program-metrics strong')).toHaveLength(2);
+ });
  it('switching level resets incompatible context but preserves the selected year',async()=>{
   const page=mount(Admissions,{props:{initialInstitute:'ief'}});await page.get('select[aria-label="Год кампании"]').setValue('2025');await page.get('select[aria-label="Уровень образования"]').setValue('СПО');expect(page.get('select[aria-label="Год кампании"]').element.value).toBe('2025');expect(page.text()).toContain('сброшены');expect(page.text()).toContain('Нет детализации');expect(page.find('.ad-active-filters').exists()).toBe(false);
  });
