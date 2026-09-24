@@ -237,3 +237,26 @@
 .ad-top-footer>span{color:#8495ab;font-size:12px;text-align:right}
 @media(max-width:1100px){.ad-top-panel-head{align-items:flex-start;flex-direction:column}.ad-top-summary{width:100%;min-width:0}}
 @media(max-width:760px){.admissions-dashboard .ad-overview-departments{padding:18px 16px}.ad-top-panel-head h2{font-size:22px!important}.ad-top-summary{grid-template-columns:40px minmax(70px,1fr) 1px minmax(105px,1fr) 26px;gap:9px;padding:11px 12px}.ad-top-summary-icon{width:38px;height:38px}.ad-top-summary strong{font-size:20px}.ad-top-footer{align-items:flex-start;flex-direction:column}.ad-top-footer>span{text-align:left}}
+
+/* Overview: full-width history panels. */
+.admissions-dashboard .ad-history-panel{padding:24px 26px 20px}
+.ad-history-panel>.panel-head{margin-bottom:4px}
+.ad-history-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;width:100%}
+.ad-history-head h2{font-size:25px!important;letter-spacing:-.4px;color:#183765}
+.ad-history-head p{margin:5px 0 0!important;color:#7189ae!important}
+.ad-history-body{display:grid;grid-template-columns:235px minmax(0,1fr);align-items:stretch;gap:24px;min-width:0}
+.ad-history-metric{display:flex;min-width:0;flex-direction:column;justify-content:center;align-items:flex-start;gap:15px;padding:8px 0 10px}
+.ad-history-metric>strong{color:#102f5e;font-size:54px;font-weight:450;letter-spacing:-2px;line-height:1;font-variant-numeric:tabular-nums}
+.ad-history-comparison{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ad-history-comparison>span{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:11px;font-size:17px;font-weight:550;font-variant-numeric:tabular-nums}
+.ad-history-comparison>span.is-positive{background:#e8f7ef;color:#118451}
+.ad-history-comparison>span.is-negative{background:#fff0f2;color:#cf2f45}
+.ad-history-comparison>small{color:#637da4;font-size:13px}
+.ad-history-metric>p{margin:0!important;color:#8192a8!important;font-size:13px!important}
+.ad-history-panel .trend-chart{height:238px;min-height:238px;max-height:none;flex:none}
+.ad-history-achievement{display:grid;grid-template-columns:28px 34px minmax(0,1fr) 16px;align-items:center;gap:9px;width:100%;margin-top:auto;padding:11px 12px;border:1px solid #e5e1fb;border-radius:12px;background:#f8f6ff;color:#7354c8;text-align:left}
+.ad-history-achievement:hover{border-color:#cbbff0;background:#f4f0ff}
+.ad-history-achievement>strong{font-size:25px;font-weight:550}
+.ad-history-achievement>span{color:#677ea4;font-size:12px;line-height:1.3}
+@media(max-width:900px){.ad-history-body{grid-template-columns:190px minmax(0,1fr);gap:15px}.ad-history-metric>strong{font-size:46px}.ad-history-panel .trend-chart{height:220px;min-height:220px}}
+@media(max-width:760px){.admissions-dashboard .ad-history-panel{padding:18px 16px}.ad-history-head{flex-direction:column}.ad-history-body{grid-template-columns:1fr}.ad-history-metric{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px 16px}.ad-history-metric>strong{font-size:43px}.ad-history-comparison{align-self:center}.ad-history-achievement{grid-column:1/-1;max-width:390px}.ad-history-panel .trend-chart{height:210px;min-height:210px}}
