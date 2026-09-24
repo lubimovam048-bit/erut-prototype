@@ -12,11 +12,11 @@ import {fmt} from '../../data';
 </template>
 <style scoped>
 .university-scores{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:10px;margin:10px 0 18px;min-width:0}
-.university-score{min-width:0;display:grid;grid-template-rows:165px 36px;gap:8px;text-align:center}
+.university-score{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:165px 36px;gap:8px;text-align:center}
 .university-score-track{display:flex;align-items:flex-end;border-bottom:1px solid #d8e3f3}
 .university-score-bar{position:relative;width:100%;border-radius:7px 7px 0 0;background:linear-gradient(#438de0,#2f74c8);min-height:28px}
 .university-score-bar b{position:absolute;bottom:8px;left:0;right:0;color:white;font-size:13px;font-variant-numeric:tabular-nums}
-.university-score>span{font-size:12px;line-height:1.3;color:#607895}
+.university-score>span{font-size:12px;line-height:1.3;color:#607895;overflow-wrap:anywhere}
 .is-rut .university-score-bar{background:linear-gradient(#235fc7,#194996)}
 .is-rut>span{font-weight:700;color:#204c8e}
 @media(max-width:760px){
