@@ -100,15 +100,10 @@
 .ad-departments-heading h2{font-size:28px!important;line-height:1.2!important;color:#19366b;letter-spacing:-.6px}
 .ad-departments-heading p{margin:5px 0 0;color:#5e78a8}
 .ad-departments-controls{display:flex;align-items:flex-end;justify-content:flex-end;gap:14px;flex-wrap:wrap}
-.ad-departments-controls .ui-tabs{display:flex;flex-wrap:nowrap;gap:3px;padding:4px;background:#f1f5fb;border:1px solid #dce6f5;border-radius:12px}
-.ad-departments-controls .ui-tabs button{min-height:38px;padding:8px 17px;border-radius:9px;color:#5872a2;font-size:14px;white-space:nowrap}
-.ad-departments-controls .ui-tabs button.active{background:#2768e3;color:#fff;border-color:#2768e3;box-shadow:0 3px 9px #2768e338}
-.ad-departments-controls .ui-tabs button:disabled{opacity:.55;background:transparent;box-shadow:none}
 .ad-department-sort{display:grid;gap:5px;color:#6a7f9b;font-size:12px}
 .ad-department-sort .ui-select-field{min-width:190px}
 .ad-department-sort select{height:48px;border-radius:11px;color:#1d3d74;font-weight:550;background:#fff}
 .ad-department-filter .ui-select-field{min-width:230px}
-.ad-form-status{min-height:48px;display:flex;align-items:center;padding:0 15px;border:1px solid #dce6f5;border-radius:11px;background:#f5f8fd;color:#667d9c;font-size:14px}
 .ad-department-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:20px}
 .ad-department-summary>div{min-width:0;min-height:104px;display:flex;align-items:center;gap:15px;padding:18px 20px;border:1px solid #dbe6f5;border-radius:15px;background:linear-gradient(135deg,#fff,#fbfdff)}
 .ad-department-summary-icon{width:52px;height:52px;display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:linear-gradient(145deg,#f1f7ff,#e5f1ff);color:#2768e3}
@@ -156,8 +151,6 @@
  .admissions-dashboard .ad-departments-panel{padding:18px 16px}
  .ad-departments-heading h2{font-size:25px!important}
  .ad-departments-controls{align-items:stretch;flex-direction:column}
- .ad-departments-controls .ui-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
- .ad-departments-controls .ui-tabs button{padding:8px 6px;font-size:12px}
  .ad-department-sort .ui-select-field{width:100%;min-width:0}
  .ad-department-summary{grid-template-columns:1fr;gap:10px}
  .ad-department-summary>div,.ad-department-summary>div:last-child{grid-column:auto;min-height:88px;padding:14px 16px}

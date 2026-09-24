@@ -132,8 +132,6 @@ function exportData(){
     <div class="ad-departments-heading">
      <div><h2>Приём по подразделениям</h2><p>{{s.year}} · {{vo?'очная форма':'форма обучения в исходнике не указана'}}</p></div>
      <div class="ad-departments-controls">
-      <UiTabs v-if="vo" model-value="onsite" label="Форма обучения" :items="[{value:'onsite',label:'Очная'},{value:'remote',label:'Заочная',disabled:true},{value:'mixed',label:'Очно-заочная',disabled:true}]"/>
-      <span v-else class="ad-form-status">Форма не указана</span>
       <label class="ad-department-filter ad-department-sort"><span>Подразделение</span><UiSelect v-model="state.selected" aria-label="Подразделение"><option value="all">Все подразделения</option><option v-for="d in departmentOptions" :key="d.id" :value="d.id">{{d.short}} · {{d.name}}</option></UiSelect></label>
       <label class="ad-department-sort"><span>Сортировка</span><UiSelect v-model="state.sort" aria-label="Сортировка подразделений"><option value="desc">По зачислению ↓</option><option value="asc">По зачислению ↑</option></UiSelect></label>
      </div>
