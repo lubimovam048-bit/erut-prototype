@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="304.804" height="39.7125" viewBox="0 0 304.804 39.7125" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Chart line" filter="url(#filter0_d_0_24)">
+<path d="M2.64586 36.6048C40.1459 27.6048 74.1459 32.6048 101.146 26.6048C125.146 20.6048 141.146 18.6048 160.146 22.6048C180.146 27.6048 194.146 14.6048 214.146 10.6048C235.146 7.60476 249.146 15.6048 267.146 12.6048C288.146 8.60476 279.146 9.10476 302.146 3.10476" stroke="#71E9FF" stroke-width="1.25"/>
+</g>
+<defs>
+<filter id="filter0_d_0_24" x="-4.47035e-08" y="-1.19209e-07" width="304.804" height="39.7125" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1.25"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.32 0 0 0 0 0.91 0 0 0 0 1 0 0 0 0.38 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_24"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_24" result="shape"/>
+</filter>
+</defs>
+</svg>

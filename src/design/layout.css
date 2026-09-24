@@ -5,6 +5,150 @@
 .kpi.ui-metric>strong{flex-wrap:wrap;white-space:normal;column-gap:7px;row-gap:4px}
 .kpi.ui-metric>strong>em{white-space:nowrap;flex-shrink:0}
 .kpi.ui-metric::before{right:0;transform:translateX(32px)}
+
+/* Figma node 21:347 — featured students KPI card. */
+.home-kpis{grid-template-columns:313px repeat(3,minmax(0,1fr))}
+.home-kpis .kpi.kpi-card--featured:first-child{
+ --kpi-card-border-glow:rgba(167,241,255,.78);
+ --kpi-card-radius:16px;
+ --kpi-card-text-primary:#fff;
+ --kpi-card-trend-positive:#14a6a9;
+ --kpi-card-badge-radius:15px;
+ position:relative;
+ width:313px;
+ max-width:100%;
+ height:132px;
+ min-height:132px;
+ padding:0;
+ overflow:hidden;
+ isolation:isolate;
+ border:1px solid var(--kpi-card-border-glow);
+ border-radius:var(--kpi-card-radius);
+ color:var(--kpi-card-text-primary);
+ background:linear-gradient(116.395deg,#3977f2 1.9231%,#2854cc 45.192%,#1d4fc9 74.038%,#1459de 98.077%);
+ box-shadow:0 6px 16px rgba(23,88,199,.22),0 0 8px 1px rgba(85,207,255,.4),inset 0 0 4px rgba(209,250,255,.25);
+}
+.home-kpis .kpi.kpi-card--featured:first-child::before{display:none}
+.home-kpis .kpi.kpi-card--featured:first-child:hover{
+ border-color:var(--kpi-card-border-glow);
+ box-shadow:0 6px 16px rgba(23,88,199,.22),0 0 8px 1px rgba(85,207,255,.4),inset 0 0 4px rgba(209,250,255,.25);
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__heading{
+ position:absolute;
+ z-index:2;
+ top:11px;
+ left:15px;
+ width:calc(100% - 30px);
+ min-height:0;
+ display:flex;
+ align-items:flex-start;
+ justify-content:space-between;
+ color:var(--kpi-card-text-primary);
+ font-size:14px;
+ font-weight:400;
+ line-height:18px;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__heading>img{
+ display:block;
+ width:24px;
+ height:24px;
+ margin:0;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>strong{
+ position:absolute;
+ z-index:2;
+ top:34px;
+ left:15px;
+ display:block;
+ width:175px;
+ min-height:0;
+ margin:0;
+ color:var(--kpi-card-text-primary);
+ font-size:32px;
+ font-weight:700;
+ line-height:36px;
+ letter-spacing:0;
+ white-space:nowrap;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__description{
+ position:absolute;
+ z-index:2;
+ top:76px;
+ left:27px;
+ display:block;
+ margin:0;
+ width:165px;
+ color:var(--kpi-card-text-primary);
+ font-size:12px;
+ font-weight:400;
+ line-height:16px;
+ white-space:nowrap;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__description>img{
+ position:absolute;
+ top:3px;
+ left:-14px;
+ display:block;
+ width:11px;
+ height:11px;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__trend{
+ position:absolute;
+ z-index:2;
+ top:41px;
+ right:15px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ height:24px;
+ width:68px;
+ min-width:68px;
+ padding:4px 8px;
+ border-radius:var(--kpi-card-badge-radius);
+ background:var(--kpi-card-trend-positive);
+ color:var(--kpi-card-text-primary);
+ font-size:13px;
+ font-weight:600;
+ line-height:16px;
+ white-space:nowrap;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__comparison{
+ position:absolute;
+ z-index:2;
+ top:77px;
+ right:15px;
+ display:block;
+ width:84px;
+ margin:0;
+ color:var(--kpi-card-text-primary);
+ font-size:11px;
+ font-weight:400;
+ line-height:14px;
+ text-align:right;
+ white-space:nowrap;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-area,
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-line,
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-point{
+ position:absolute;
+ z-index:1;
+ display:block;
+ max-width:none;
+ pointer-events:none;
+}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-area{top:90px;left:-5px;width:321px;height:64px}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-line{top:94.4px;left:-11.1px;width:304.804px;height:39.7125px}
+.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart-point{top:83px;right:6px;width:30px;height:30px}
+
+@media(min-width:761px) and (max-width:1050px){
+ .home-kpis{grid-template-columns:313px minmax(0,1fr)}
+}
+
+@media(max-width:760px){
+ .home-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .home-kpis .kpi.kpi-card--featured:first-child{grid-column:1/-1;justify-self:start;width:min(313px,100%)}
+ .home-kpis .kpi-card--featured~.kpi:last-child{grid-column:1/-1}
+}
 .page-workspace .focus-panels .donut-chart{margin-block:auto}
 .page-workspace .focus-panels .trend-chart{margin-block:auto}
 .page-workspace .focus-panels>.panel>.ui-button{flex-shrink:0;align-self:flex-start}
