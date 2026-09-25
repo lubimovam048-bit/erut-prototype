@@ -45,11 +45,11 @@ it('admissions export follows the selected population and produces a usable CSV'
  expect(content).toContain('ИЭФ;2897;828');expect(content).not.toContain('ИЖТ;');expect(filename).toBe('RUT.digital-прием-2026-ВО-departments.csv');expect(revoke).toHaveBeenCalledWith('blob:test');page.unmount();
 });
 
-it('removes global search and persists a collapsed navbar while retaining a restore control',async()=>{
+it('removes global search and persists the Figma sidebar state through its navigation trigger',async()=>{
  const wrapper=mount(App,{global:{stubs:{CampusMap:true,DesignSystem:true}}});await flushPromises();
  expect(wrapper.find('.global-search').exists()).toBe(false);
- await wrapper.get('.nav-toggle').trigger('click');expect(wrapper.get('.app-shell').classes()).toContain('nav-collapsed');expect(localStorage.getItem('erut-nav-collapsed')).toBe('true');wrapper.unmount();
- const again=mount(App,{global:{stubs:{CampusMap:true,DesignSystem:true}}});await flushPromises();expect(again.get('.app-shell').classes()).toContain('nav-collapsed');await again.get('.nav-toggle').trigger('click');expect(again.get('.app-shell').classes()).not.toContain('nav-collapsed');again.unmount();
+ await wrapper.get('.sidebar-toggle').trigger('click');expect(wrapper.get('.app-shell').classes()).toContain('nav-collapsed');expect(localStorage.getItem('erut-nav-collapsed')).toBe('true');wrapper.unmount();
+ const again=mount(App,{global:{stubs:{CampusMap:true,DesignSystem:true}}});await flushPromises();expect(again.get('.app-shell').classes()).toContain('nav-collapsed');await again.get('.sidebar-toggle').trigger('click');expect(again.get('.app-shell').classes()).not.toContain('nav-collapsed');again.unmount();
 });
 it('opens an institute admission context even when the module is already mounted',async()=>{
  const page=mount(Admissions);await page.setProps({initialInstitute:'law'});expect(page.get('select[aria-label="Подразделение"]').element.value).toBe('law');expect(page.findAll('.admission-bars button')).toHaveLength(1);await page.setProps({initialInstitute:'ief'});expect(page.get('select[aria-label="Подразделение"]').element.value).toBe('ief');expect(page.get('.admission-bars').text()).toContain('828');page.unmount();
