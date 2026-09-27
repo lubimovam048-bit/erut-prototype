@@ -1,9 +1,23 @@
 <script setup lang="ts">
-import { useId } from 'vue';
-import Icon from './Icon.vue';
+import { computed } from 'vue';
 import UiMetric from './ui/UiMetric.vue';
+import featuredArea from '../assets/overview-kpi/featured-area.svg';
+import featuredGridHorizontal from '../assets/overview-kpi/featured-grid-horizontal.svg';
+import featuredGridVertical from '../assets/overview-kpi/featured-grid-vertical.svg';
+import featuredLine from '../assets/overview-kpi/featured-line.svg';
+import featuredPoint from '../assets/overview-kpi/featured-point.svg';
+import lightGridHorizontal from '../assets/overview-kpi/light-grid-horizontal.svg';
+import lightGridVertical from '../assets/overview-kpi/light-grid-vertical.svg';
+import purpleArea from '../assets/overview-kpi/purple-area.svg';
+import purpleLine from '../assets/overview-kpi/purple-line.svg';
+import purplePoint from '../assets/overview-kpi/purple-point.svg';
+import bulletBlue from '../assets/overview-kpi/bullet-blue.svg';
+import bulletCyan from '../assets/overview-kpi/bullet-cyan.svg';
+import bulletPurple from '../assets/overview-kpi/bullet-purple.svg';
+import trendUpGreen from '../assets/overview-kpi/trend-up-green.svg';
+import trendUpWhite from '../assets/overview-kpi/trend-up-white.svg';
 
-withDefaults(defineProps<{
+const props=withDefaults(defineProps<{
   title:string;
   value:string;
   unit?:string;
@@ -20,62 +34,43 @@ withDefaults(defineProps<{
 
 defineEmits<{activate:[]}>();
 
-const chartId=useId().replace(/:/g,'');
-const lineGradientId=`overview-kpi-line-${chartId}`;
-const barGradientId=`overview-kpi-bars-${chartId}`;
+const bulletIcon=computed(()=>props.tone==='featured'?bulletCyan:props.tone==='purple'?bulletPurple:bulletBlue);
+const trendIcon=computed(()=>props.tone==='featured'?trendUpWhite:trendUpGreen);
 </script>
 
 <template>
-  <UiMetric
-    interactive
-    class="overview-kpi"
-    :class="`overview-kpi--${tone}`"
-    @click="$emit('activate')"
-  >
+  <UiMetric interactive class="overview-kpi" :class="`overview-kpi--${tone}`" @click="$emit('activate')">
     <template #heading><span class="overview-kpi__title">{{title}}</span></template>
     <template #content>
-      <strong class="overview-kpi__value">
-        {{value}}<em v-if="unit">{{unit}}</em>
-      </strong>
-      <span class="overview-kpi__trend"><Icon name="up" :size="14"/>{{trend}}</span>
+      <strong class="overview-kpi__value">{{value}}<em v-if="unit">{{unit}}</em></strong>
     </template>
     <template #detail>
-      <small class="overview-kpi__meta"><i></i>{{meta}}</small>
-      <small class="overview-kpi__comparison">{{comparison}}</small>
-      <svg v-if="chart==='line'" class="overview-kpi__chart overview-kpi__line-chart" viewBox="0 0 150 64" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient :id="lineGradientId" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="currentColor" stop-opacity=".34"/>
-            <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <g class="overview-kpi__grid">
-          <path d="M12 0V64M37 0V64M62 0V64M87 0V64M112 0V64M137 0V64"/>
-        </g>
-        <path class="overview-kpi__area" d="M3 57C21 47 38 38 56 33C72 29 80 41 93 28C105 17 118 30 145 13V64H3Z" :fill="`url(#${lineGradientId})`"/>
-        <path class="overview-kpi__line" d="M3 57C21 47 38 38 56 33C72 29 80 41 93 28C105 17 118 30 145 13"/>
-        <circle class="overview-kpi__point" cx="145" cy="13" r="3"/>
-      </svg>
-      <svg v-else class="overview-kpi__chart overview-kpi__bar-chart" viewBox="0 0 150 64" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <linearGradient :id="barGradientId" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" stop-color="currentColor" stop-opacity=".86"/>
-            <stop offset="1" stop-color="currentColor" stop-opacity=".16"/>
-          </linearGradient>
-        </defs>
-        <g class="overview-kpi__grid">
-          <path d="M12 0V64M37 0V64M62 0V64M87 0V64M112 0V64M137 0V64"/>
-        </g>
-        <g :fill="`url(#${barGradientId})`">
-          <rect x="4" y="44" width="17" height="20" rx="1"/>
-          <rect x="25" y="35" width="17" height="29" rx="1"/>
-          <rect x="46" y="27" width="17" height="37" rx="1"/>
-          <rect x="67" y="18" width="17" height="46" rx="1"/>
-          <rect x="88" y="10" width="17" height="54" rx="1"/>
-          <rect x="109" y="3" width="17" height="61" rx="1"/>
-          <rect x="130" y="0" width="17" height="64" rx="1"/>
-        </g>
-      </svg>
+      <small class="overview-kpi__meta">
+        <span class="overview-kpi__bullet"><img :src="bulletIcon" alt=""/></span>{{meta}}
+      </small>
+      <span class="overview-kpi__progress">
+        <span class="overview-kpi__trend"><img :src="trendIcon" alt=""/>{{trend}}</span>
+        <small class="overview-kpi__comparison">{{comparison}}</small>
+      </span>
+
+      <span class="overview-kpi__grid-layer" aria-hidden="true">
+        <img :src="tone==='featured'?featuredGridVertical:lightGridVertical" alt=""/>
+        <span class="overview-kpi__grid-horizontal"><img :src="tone==='featured'?featuredGridHorizontal:lightGridHorizontal" alt=""/></span>
+      </span>
+
+      <span v-if="chart==='line' && tone==='featured'" class="overview-kpi__line-visual overview-kpi__line-visual--featured" aria-hidden="true">
+        <img class="overview-kpi__chart-area" :src="featuredArea" alt=""/>
+        <img class="overview-kpi__chart-line" :src="featuredLine" alt=""/>
+        <img class="overview-kpi__chart-point" :src="featuredPoint" alt=""/>
+      </span>
+      <span v-else-if="chart==='line'" class="overview-kpi__line-visual overview-kpi__line-visual--purple" aria-hidden="true">
+        <img class="overview-kpi__chart-area" :src="purpleArea" alt=""/>
+        <img class="overview-kpi__chart-line" :src="purpleLine" alt=""/>
+        <img class="overview-kpi__chart-point" :src="purplePoint" alt=""/>
+      </span>
+      <span v-else class="overview-kpi__bars" aria-hidden="true">
+        <i v-for="height in [16,24,32,40,48,56,61]" :key="height" :style="{height:`${height}px`}"></i>
+      </span>
     </template>
   </UiMetric>
 </template>

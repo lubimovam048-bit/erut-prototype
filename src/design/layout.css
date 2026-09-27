@@ -16,8 +16,6 @@
 }
 .page-workspace.workspace-home>.kpi-grid.home-kpis{gap:16px}
 .home-kpis .overview-kpi{
- --overview-accent:#3d73d7;
- --overview-grid:rgba(61,115,215,.06);
  position:relative;
  isolation:isolate;
  width:100%;
@@ -26,60 +24,68 @@
  min-height:135px;
  padding:12px;
  overflow:hidden;
- border:1px solid rgba(47,99,207,.08);
+ border:1px solid rgba(46,99,213,.05);
  border-radius:12px;
  background:#fff;
- box-shadow:none;
- color:#19365f;
+ box-shadow:inset 0 0 30px rgba(46,99,213,.05);
+ color:#203451;
  text-align:left;
 }
 .home-kpis .overview-kpi::before{display:none}
 .home-kpis .overview-kpi:hover{
- border-color:rgba(47,99,207,.14);
- box-shadow:0 4px 14px rgba(31,74,143,.08);
+ border-color:rgba(46,99,213,.05);
+ box-shadow:inset 0 0 30px rgba(46,99,213,.05);
  transform:none;
 }
-.home-kpis .overview-kpi--teal{--overview-accent:#48aeb0;--overview-grid:rgba(72,174,176,.07)}
-.home-kpis .overview-kpi--purple{--overview-accent:#8461db;--overview-grid:rgba(132,97,219,.07)}
-.home-kpis .overview-kpi--blue{--overview-accent:#3d73d7;--overview-grid:rgba(61,115,215,.06)}
 .home-kpis .overview-kpi>.overview-kpi__title{
  position:absolute;
  z-index:3;
  top:12px;
  left:12px;
  display:block;
+ min-height:0;
  margin:0;
- color:#667996;
+ color:#63748f;
  font:400 14px/16px 'Golos Text Variable',sans-serif;
  white-space:nowrap;
 }
 .home-kpis .overview-kpi>.overview-kpi__value{
  position:absolute;
  z-index:3;
- top:38px;
+ top:36px;
  left:12px;
  display:flex;
  align-items:baseline;
- gap:5px;
+ gap:4px;
  min-height:38px;
  margin:0;
- color:#19365f;
+ color:#203451;
  font:500 32px/38px 'Golos Text Variable',sans-serif;
  letter-spacing:0;
+ flex-wrap:nowrap;
  white-space:nowrap;
 }
 .home-kpis .overview-kpi>.overview-kpi__value>em{
  margin:0;
- color:#3f5575;
- font:400 18px/22px 'Golos Text Variable',sans-serif;
+ color:#203451;
+ font:400 16px/19px 'Golos Text Variable',sans-serif;
  font-style:normal;
  white-space:nowrap;
 }
-.home-kpis .overview-kpi>.overview-kpi__trend{
+.home-kpis .overview-kpi>.overview-kpi__progress{
  position:absolute;
  z-index:4;
  top:12px;
  right:12px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:flex-end;
+ gap:4px;
+ min-height:0;
+ color:#63748f;
+}
+.home-kpis .overview-kpi .overview-kpi__trend{
  display:flex;
  align-items:center;
  justify-content:center;
@@ -88,21 +94,16 @@
  min-width:0;
  padding:4px 6px;
  border-radius:999px;
- background:#e5f6ee;
- color:#147854;
+ background:#e5f6ef;
+ color:#105f44;
  font:500 12px/14px 'Golos Text Variable',sans-serif;
  white-space:nowrap;
 }
-.home-kpis .overview-kpi>.overview-kpi__trend>svg{width:14px;height:14px;flex:0 0 14px}
-.home-kpis .overview-kpi>.overview-kpi__comparison{
- position:absolute;
- z-index:3;
- top:42px;
- right:12px;
+.home-kpis .overview-kpi .overview-kpi__trend>img{display:block;flex:0 0 auto}
+.home-kpis .overview-kpi .overview-kpi__comparison{
  display:block;
- max-width:130px;
  margin:0;
- color:#6b7e9b;
+ color:#63748f;
  font:400 12px/14px 'Golos Text Variable',sans-serif;
  text-align:right;
  white-space:nowrap;
@@ -111,82 +112,111 @@
  position:absolute;
  z-index:3;
  left:12px;
- bottom:11px;
+ bottom:12px;
  display:flex;
  align-items:center;
  gap:8px;
  margin:0;
- color:#6b7e9b;
+ color:#63748f;
  font:400 12px/14px 'Golos Text Variable',sans-serif;
  white-space:nowrap;
 }
-.home-kpis .overview-kpi>.overview-kpi__meta>i{
+.home-kpis .overview-kpi .overview-kpi__bullet{
+ position:relative;
+ display:block;
  width:5px;
- height:5px;
+ height:14px;
  flex:0 0 5px;
- border-radius:50%;
- background:var(--overview-accent);
- box-shadow:0 0 4px color-mix(in srgb,var(--overview-accent),transparent 35%);
 }
-.home-kpis .overview-kpi>.overview-kpi__chart{
+.home-kpis .overview-kpi .overview-kpi__bullet>img{position:absolute;top:0;left:-3px;display:block}
+.home-kpis .overview-kpi>.overview-kpi__grid-layer{
  position:absolute;
  z-index:1;
- right:7px;
- bottom:7px;
+ top:50px;
+ right:10.5px;
  display:block;
- width:145px;
- height:64px;
- max-width:46%;
+ width:143.5px;
+ height:72px;
+ min-height:0;
  overflow:visible;
- color:var(--overview-accent);
  pointer-events:none;
 }
-.home-kpis .overview-kpi .overview-kpi__grid path{
- fill:none;
- stroke:var(--overview-grid);
- stroke-width:1;
- vector-effect:non-scaling-stroke;
+.home-kpis .overview-kpi>.overview-kpi__grid-layer>img{position:absolute;inset:0;display:block}
+.home-kpis .overview-kpi .overview-kpi__grid-horizontal{
+ position:absolute;
+ top:1px;
+ left:.25px;
+ display:grid;
+ place-items:center;
+ width:143px;
+ height:70px;
+ min-height:0;
 }
-.home-kpis .overview-kpi .overview-kpi__line{
- fill:none;
- stroke:currentColor;
- stroke-width:2;
- stroke-linecap:round;
- vector-effect:non-scaling-stroke;
+.home-kpis .overview-kpi .overview-kpi__grid-horizontal>img{display:block;transform:rotate(-90deg)}
+.home-kpis .overview-kpi>.overview-kpi__line-visual{
+ position:absolute;
+ z-index:2;
+ right:12px;
+ bottom:12px;
+ display:block;
+ width:138px;
+ min-height:0;
+ overflow:visible;
+ pointer-events:none;
 }
-.home-kpis .overview-kpi .overview-kpi__point{
- fill:#fff;
- stroke:currentColor;
- stroke-width:1.5;
- vector-effect:non-scaling-stroke;
+.home-kpis .overview-kpi .overview-kpi__line-visual--featured{height:42px}
+.home-kpis .overview-kpi .overview-kpi__line-visual--purple{height:52.519px}
+.home-kpis .overview-kpi .overview-kpi__chart-area{position:absolute;inset:0;display:block}
+.home-kpis .overview-kpi .overview-kpi__line-visual--featured .overview-kpi__chart-line{position:absolute;top:-3.2px;left:-2.75px;display:block}
+.home-kpis .overview-kpi .overview-kpi__line-visual--featured .overview-kpi__chart-point{position:absolute;top:-9px;left:128px;display:block}
+.home-kpis .overview-kpi .overview-kpi__line-visual--purple .overview-kpi__chart-line{position:absolute;top:-3.4px;left:-2.75px;display:block}
+.home-kpis .overview-kpi .overview-kpi__line-visual--purple .overview-kpi__chart-point{position:absolute;top:-6.5px;left:132.5px;display:block}
+.home-kpis .overview-kpi>.overview-kpi__bars{
+ position:absolute;
+ z-index:2;
+ right:12px;
+ bottom:12px;
+ display:flex;
+ align-items:flex-end;
+ justify-content:space-between;
+ width:143px;
+ height:61px;
+ min-height:0;
+ pointer-events:none;
 }
+.home-kpis .overview-kpi .overview-kpi__bars>i{display:block;width:16px;flex:0 0 16px;background:linear-gradient(180deg,#0e9299,#0c7a80);backdrop-filter:blur(5px)}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(1){opacity:.7}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(2){opacity:.6}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(3){opacity:.5}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(4){opacity:.4}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(5){opacity:.3}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(6){opacity:.2}
+.home-kpis .overview-kpi .overview-kpi__bars>i:nth-child(7){opacity:.1}
+.home-kpis .overview-kpi--blue .overview-kpi__bars>i{background:linear-gradient(180deg,rgba(46,99,213,.6),#2e63d5)}
 .home-kpis .overview-kpi--featured{
- --overview-accent:#70e8ff;
- --overview-grid:rgba(121,228,255,.1);
  border:0;
  color:#fff;
- background:linear-gradient(114.46deg,#3977f2 1.92%,#2854cc 45.19%,#1d4fc9 74.04%,#1459de 98.08%);
- box-shadow:0 5px 15px rgba(23,88,199,.18),inset 0 0 4px rgba(209,250,255,.18);
+ background:linear-gradient(115.886deg,#3977f2 1.9231%,#2854cc 45.192%,#1d4fc9 74.038%,#1459de 98.077%);
+ box-shadow:none;
 }
 .home-kpis .overview-kpi--featured:hover{
  border:0;
- box-shadow:0 5px 15px rgba(23,88,199,.22),inset 0 0 4px rgba(209,250,255,.22);
+ box-shadow:none;
 }
 .home-kpis .overview-kpi--featured>.overview-kpi__title,
+.home-kpis .overview-kpi--featured>.overview-kpi__meta{color:#d8e4ff}
 .home-kpis .overview-kpi--featured>.overview-kpi__value,
-.home-kpis .overview-kpi--featured>.overview-kpi__meta,
-.home-kpis .overview-kpi--featured>.overview-kpi__comparison{color:#fff}
-.home-kpis .overview-kpi--featured>.overview-kpi__trend{background:#147854;color:#fff}
-.home-kpis .overview-kpi--featured .overview-kpi__point{fill:#fff;stroke:#fff}
+.home-kpis .overview-kpi--featured .overview-kpi__comparison{color:#fff}
+.home-kpis .overview-kpi--featured .overview-kpi__trend{background:#147854;color:#fff}
+.home-kpis .overview-kpi--featured>.overview-kpi__grid-layer{right:11.5px;width:138.5px;height:70px}
+.home-kpis .overview-kpi--featured .overview-kpi__grid-horizontal{top:2px;left:.25px;width:138px;height:68px}
 
 @media(min-width:761px) and (max-width:1050px){
  .home-kpis{grid-template-columns:repeat(2,minmax(0,313px))}
 }
 
 @media(max-width:760px){
- .home-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
- .home-kpis .overview-kpi{max-width:none}
- .home-kpis .overview-kpi>.overview-kpi__chart{width:46%}
+ .home-kpis{grid-template-columns:minmax(0,313px)}
 }
 
 @media(max-width:520px){
