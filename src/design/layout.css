@@ -6,151 +6,191 @@
 .kpi.ui-metric>strong>em{white-space:nowrap;flex-shrink:0}
 .kpi.ui-metric::before{right:0;transform:translateX(32px)}
 
-/* Figma node 146:1762 — featured students KPI card. */
-.home-kpis{grid-template-columns:313px repeat(3,minmax(0,1fr))}
-.home-kpis .kpi.kpi-card--featured:first-child{
- --kpi-card-radius:12px;
- --kpi-card-text-primary:#fff;
- --kpi-card-trend-positive:#147854;
+/* Overview KPI row — shared compact composition from the product UI kit. */
+.home-kpis{
+ width:100%;
+ max-width:1300px;
+ grid-template-columns:repeat(4,minmax(0,313px));
+ gap:16px;
+ justify-content:start;
+}
+.page-workspace.workspace-home>.kpi-grid.home-kpis{gap:16px}
+.home-kpis .overview-kpi{
+ --overview-accent:#3d73d7;
+ --overview-grid:rgba(61,115,215,.06);
  position:relative;
- width:313px;
- max-width:100%;
- height:144px;
- min-height:144px;
- padding:0;
- overflow:hidden;
  isolation:isolate;
- border:0;
- border-radius:var(--kpi-card-radius);
- color:var(--kpi-card-text-primary);
- background:linear-gradient(114.4627757471423deg,#3977f2 1.9231%,#2854cc 45.192%,#1d4fc9 74.038%,#1459de 98.077%);
- box-shadow:0 6px 16px rgba(23,88,199,.22),0 0 8px 1px rgba(85,207,255,.2),inset 0 0 4px rgba(209,250,255,.25);
+ width:100%;
+ max-width:313px;
+ height:135px;
+ min-height:135px;
+ padding:12px;
+ overflow:hidden;
+ border:1px solid rgba(47,99,207,.08);
+ border-radius:12px;
+ background:#fff;
+ box-shadow:none;
+ color:#19365f;
+ text-align:left;
 }
-.home-kpis .kpi.kpi-card--featured:first-child::before{display:none}
-.home-kpis .kpi.kpi-card--featured:first-child:hover{
- border:0;
- box-shadow:0 6px 16px rgba(23,88,199,.22),0 0 8px 1px rgba(85,207,255,.2),inset 0 0 4px rgba(209,250,255,.25);
+.home-kpis .overview-kpi::before{display:none}
+.home-kpis .overview-kpi:hover{
+ border-color:rgba(47,99,207,.14);
+ box-shadow:0 4px 14px rgba(31,74,143,.08);
+ transform:none;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__heading{
+.home-kpis .overview-kpi--teal{--overview-accent:#48aeb0;--overview-grid:rgba(72,174,176,.07)}
+.home-kpis .overview-kpi--purple{--overview-accent:#8461db;--overview-grid:rgba(132,97,219,.07)}
+.home-kpis .overview-kpi--blue{--overview-accent:#3d73d7;--overview-grid:rgba(61,115,215,.06)}
+.home-kpis .overview-kpi>.overview-kpi__title{
  position:absolute;
- z-index:2;
+ z-index:3;
  top:12px;
  left:12px;
- width:calc(100% - 24px);
- height:20px;
- min-height:0;
- display:flex;
- align-items:center;
- justify-content:space-between;
- color:var(--kpi-card-text-primary);
- font-size:14px;
- font-weight:400;
- line-height:16px;
-}
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__heading>img{
  display:block;
- width:20px;
- height:20px;
  margin:0;
+ color:#667996;
+ font:400 14px/16px 'Golos Text Variable',sans-serif;
+ white-space:nowrap;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>strong{
+.home-kpis .overview-kpi>.overview-kpi__value{
  position:absolute;
- z-index:2;
- top:36px;
+ z-index:3;
+ top:38px;
  left:12px;
  display:flex;
- align-items:center;
- width:105px;
- height:38px;
- min-height:0;
+ align-items:baseline;
+ gap:5px;
+ min-height:38px;
  margin:0;
- color:var(--kpi-card-text-primary);
- font-size:32px;
- font-weight:500;
- line-height:38px;
+ color:#19365f;
+ font:500 32px/38px 'Golos Text Variable',sans-serif;
  letter-spacing:0;
  white-space:nowrap;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__description{
- position:absolute;
- z-index:2;
- top:90px;
- left:9px;
- display:flex;
- align-items:center;
- gap:5px;
+.home-kpis .overview-kpi>.overview-kpi__value>em{
  margin:0;
- width:132px;
- height:14px;
- color:var(--kpi-card-text-primary);
- font-size:12px;
- font-weight:400;
- line-height:14px;
+ color:#3f5575;
+ font:400 18px/22px 'Golos Text Variable',sans-serif;
+ font-style:normal;
  white-space:nowrap;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__description>img{
- display:block;
- width:11px;
- height:11px;
- flex:0 0 11px;
-}
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__trend{
+.home-kpis .overview-kpi>.overview-kpi__trend{
  position:absolute;
- z-index:2;
- top:42px;
+ z-index:4;
+ top:12px;
  right:12px;
  display:flex;
  align-items:center;
  justify-content:center;
  gap:2px;
- height:26px;
- min-width:64px;
- padding:6px;
+ height:22px;
+ min-width:0;
+ padding:4px 6px;
  border-radius:999px;
- background:var(--kpi-card-trend-positive);
- color:var(--kpi-card-text-primary);
- font-size:12px;
- font-weight:600;
- line-height:14px;
+ background:#e5f6ee;
+ color:#147854;
+ font:500 12px/14px 'Golos Text Variable',sans-serif;
  white-space:nowrap;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__trend>img{display:block;width:14px;height:14px;flex:0 0 14px}
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__comparison{
+.home-kpis .overview-kpi>.overview-kpi__trend>svg{width:14px;height:14px;flex:0 0 14px}
+.home-kpis .overview-kpi>.overview-kpi__comparison{
  position:absolute;
- z-index:2;
- top:90px;
+ z-index:3;
+ top:42px;
  right:12px;
  display:block;
- width:68px;
- height:14px;
+ max-width:130px;
  margin:0;
- color:var(--kpi-card-text-primary);
- font-size:12px;
- font-weight:400;
- line-height:14px;
+ color:#6b7e9b;
+ font:400 12px/14px 'Golos Text Variable',sans-serif;
  text-align:right;
  white-space:nowrap;
 }
-.home-kpis .kpi.kpi-card--featured:first-child>.kpi-card__chart{
+.home-kpis .overview-kpi>.overview-kpi__meta{
+ position:absolute;
+ z-index:3;
+ left:12px;
+ bottom:11px;
+ display:flex;
+ align-items:center;
+ gap:8px;
+ margin:0;
+ color:#6b7e9b;
+ font:400 12px/14px 'Golos Text Variable',sans-serif;
+ white-space:nowrap;
+}
+.home-kpis .overview-kpi>.overview-kpi__meta>i{
+ width:5px;
+ height:5px;
+ flex:0 0 5px;
+ border-radius:50%;
+ background:var(--overview-accent);
+ box-shadow:0 0 4px color-mix(in srgb,var(--overview-accent),transparent 35%);
+}
+.home-kpis .overview-kpi>.overview-kpi__chart{
  position:absolute;
  z-index:1;
+ right:7px;
+ bottom:7px;
  display:block;
- top:107px;
- left:-7.59px;
- width:334.09px;
- height:44.3806px;
- max-width:none;
+ width:145px;
+ height:64px;
+ max-width:46%;
+ overflow:visible;
+ color:var(--overview-accent);
  pointer-events:none;
 }
+.home-kpis .overview-kpi .overview-kpi__grid path{
+ fill:none;
+ stroke:var(--overview-grid);
+ stroke-width:1;
+ vector-effect:non-scaling-stroke;
+}
+.home-kpis .overview-kpi .overview-kpi__line{
+ fill:none;
+ stroke:currentColor;
+ stroke-width:2;
+ stroke-linecap:round;
+ vector-effect:non-scaling-stroke;
+}
+.home-kpis .overview-kpi .overview-kpi__point{
+ fill:#fff;
+ stroke:currentColor;
+ stroke-width:1.5;
+ vector-effect:non-scaling-stroke;
+}
+.home-kpis .overview-kpi--featured{
+ --overview-accent:#70e8ff;
+ --overview-grid:rgba(121,228,255,.1);
+ border:0;
+ color:#fff;
+ background:linear-gradient(114.46deg,#3977f2 1.92%,#2854cc 45.19%,#1d4fc9 74.04%,#1459de 98.08%);
+ box-shadow:0 5px 15px rgba(23,88,199,.18),inset 0 0 4px rgba(209,250,255,.18);
+}
+.home-kpis .overview-kpi--featured:hover{
+ border:0;
+ box-shadow:0 5px 15px rgba(23,88,199,.22),inset 0 0 4px rgba(209,250,255,.22);
+}
+.home-kpis .overview-kpi--featured>.overview-kpi__title,
+.home-kpis .overview-kpi--featured>.overview-kpi__value,
+.home-kpis .overview-kpi--featured>.overview-kpi__meta,
+.home-kpis .overview-kpi--featured>.overview-kpi__comparison{color:#fff}
+.home-kpis .overview-kpi--featured>.overview-kpi__trend{background:#147854;color:#fff}
+.home-kpis .overview-kpi--featured .overview-kpi__point{fill:#fff;stroke:#fff}
 
 @media(min-width:761px) and (max-width:1050px){
- .home-kpis{grid-template-columns:313px minmax(0,1fr)}
+ .home-kpis{grid-template-columns:repeat(2,minmax(0,313px))}
 }
 
 @media(max-width:760px){
  .home-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
- .home-kpis .kpi.kpi-card--featured:first-child{grid-column:1/-1;justify-self:start;width:min(313px,100%)}
- .home-kpis .kpi-card--featured~.kpi:last-child{grid-column:1/-1}
+ .home-kpis .overview-kpi{max-width:none}
+ .home-kpis .overview-kpi>.overview-kpi__chart{width:46%}
+}
+
+@media(max-width:520px){
+ .home-kpis{grid-template-columns:minmax(0,1fr)}
 }
 .page-workspace .focus-panels .donut-chart{margin-block:auto}
 .page-workspace .focus-panels .trend-chart{margin-block:auto}
