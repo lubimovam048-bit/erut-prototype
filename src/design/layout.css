@@ -224,6 +224,8 @@
 }
 .page-workspace .focus-panels .donut-chart{margin-block:auto}
 .page-workspace .focus-panels .trend-chart{margin-block:auto}
+.workspace-home .widget-admissions .admissions-quality-body{padding:20px 24px 14px;overflow:hidden}
+.workspace-home .dashboard-grid:not(.dashboard-editing) .widget-admissions>.widget-dragbar{display:none}
 .page-workspace .focus-panels>.panel>.ui-button{flex-shrink:0;align-self:flex-start}
 .page-toolbar .toolbar-actions{flex-wrap:wrap}
 .page-toolbar{flex-wrap:wrap}
