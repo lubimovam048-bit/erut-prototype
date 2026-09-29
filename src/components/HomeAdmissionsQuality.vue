@@ -31,7 +31,8 @@ onBeforeUnmount(()=>observer?.disconnect());
 
 const isScore=computed(()=>props.mode==='score');
 const values=computed(()=>isScore.value?props.scoreValues:props.enrollmentValues);
-const nationalValues=[58,60.3,63.9,67.7];
+const nationalScoreValues=[58,60.3,63.9,67.7];
+const nationalEnrollmentValues=[6580,6690,6840,6980];
 const ticks=computed(()=>isScore.value?[55,60,65,70,75,80]:[6500,6700,6900,7100,7300]);
 const low=computed(()=>ticks.value[0]!);
 const high=computed(()=>ticks.value.at(-1)!);
@@ -47,7 +48,7 @@ const dataWidth=computed(()=>plotWidth.value*.866);
 const xAt=(index:number)=>dataLeft.value+index*dataWidth.value/(Math.max(props.years.length-1,1));
 const yAt=(value:number)=>top+(high.value-value)/(high.value-low.value)*plotHeight.value;
 const points=computed(()=>values.value.map((value,index)=>({x:xAt(index),y:yAt(value),value})));
-const nationalPoints=computed(()=>isScore.value?nationalValues.map((value,index)=>({x:xAt(index),y:yAt(value),value})):[]);
+const nationalPoints=computed(()=>(isScore.value?nationalScoreValues:nationalEnrollmentValues).map((value,index)=>({x:xAt(index),y:yAt(value),value})));
 const linePath=(items:{x:number;y:number}[])=>items.map((point,index)=>`${index?'L':'M'}${point.x},${point.y}`).join(' ');
 const primaryLine=computed(()=>linePath(points.value));
 const comparisonLine=computed(()=>linePath(nationalPoints.value));
@@ -56,6 +57,7 @@ const lastPoint=computed(()=>points.value.at(-1));
 const gradientId='home-admission-quality-area';
 const displayValue=computed(()=>isScore.value?'76,4':fmt(props.enrollmentValues.at(-1)??0));
 const badge=computed(()=>isScore.value?'+4,2%':'−104');
+const isDecrease=computed(()=>!isScore.value);
 </script>
 
 <template>
@@ -72,14 +74,14 @@ const badge=computed(()=>isScore.value?'+4,2%':'−104');
         </div>
         <div class="home-admission-quality__legend">
           <span><i></i>РУТ (МИИТ)</span>
-          <span v-if="isScore"><i></i>Среднее по РФ</span>
+          <span><i></i>Среднее по РФ</span>
         </div>
       </div>
     </header>
 
     <div class="home-admission-quality__metric">
       <strong>{{displayValue}}</strong>
-      <span><Icon name="up" :size="18"/>{{badge}}</span>
+      <span :class="{'is-negative':isDecrease}"><Icon :name="isDecrease?'downArrow':'up'" :size="18"/>{{badge}}</span>
     </div>
 
     <div ref="host" class="home-admission-quality__chart">
@@ -102,7 +104,7 @@ const badge=computed(()=>isScore.value?'+4,2%':'−104');
         <text v-for="(year,index) in years" :key="year" class="home-admission-quality__year" :x="xAt(index)" :y="height-8" text-anchor="middle">{{year}}</text>
 
         <path class="home-admission-quality__area" :d="areaPath" :fill="`url(#${gradientId})`"/>
-        <path v-if="isScore" class="home-admission-quality__comparison-line" :d="comparisonLine"/>
+        <path class="home-admission-quality__comparison-line" :d="comparisonLine"/>
         <circle v-for="(point,index) in nationalPoints" :key="`national-${index}`" class="home-admission-quality__comparison-point" :cx="point.x" :cy="point.y" r="5"/>
         <path class="home-admission-quality__primary-line" :d="primaryLine"/>
 
@@ -138,6 +140,7 @@ const badge=computed(()=>isScore.value?'+4,2%':'−104');
 .home-admission-quality__metric{display:flex;align-items:center;gap:14px;margin:17px 0 5px;flex-shrink:0}
 .home-admission-quality__metric strong{color:#2e64d2;font-size:44px;line-height:1;font-weight:500;letter-spacing:-1px}
 .home-admission-quality__metric span{display:flex;align-items:center;gap:4px;padding:9px 12px;border-radius:999px;background:#e2f4ed;color:#11664d;font-size:15px;font-weight:500;white-space:nowrap}
+.home-admission-quality__metric span.is-negative{background:#fbecef;color:#b43b54}
 .home-admission-quality__chart{flex:1;min-height:220px;width:100%;overflow:hidden}
 .home-admission-quality__chart svg{display:block;width:100%;height:100%;overflow:visible;font-family:'Golos Text Variable',sans-serif}
 .home-admission-quality__grid line{stroke:#d8e3f2;stroke-width:1;stroke-dasharray:3 4}
