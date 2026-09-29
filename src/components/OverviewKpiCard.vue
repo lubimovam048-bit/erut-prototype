@@ -40,37 +40,42 @@ const trendIcon=computed(()=>props.tone==='featured'?trendUpWhite:trendUpGreen);
 
 <template>
   <UiMetric interactive class="overview-kpi" :class="`overview-kpi--${tone}`" @click="$emit('activate')">
-    <template #heading><span class="overview-kpi__title">{{title}}</span></template>
+    <template #heading>
+      <span class="overview-kpi__copy">
+        <span class="overview-kpi__title">{{title}}</span>
+        <strong class="overview-kpi__value">{{value}}<em v-if="unit">{{unit}}</em></strong>
+        <small class="overview-kpi__meta">
+          <span class="overview-kpi__bullet"><img :src="bulletIcon" alt=""/></span>{{meta}}
+        </small>
+      </span>
+    </template>
     <template #content>
-      <strong class="overview-kpi__value">{{value}}<em v-if="unit">{{unit}}</em></strong>
-    </template>
-    <template #detail>
-      <small class="overview-kpi__meta">
-        <span class="overview-kpi__bullet"><img :src="bulletIcon" alt=""/></span>{{meta}}
-      </small>
-      <span class="overview-kpi__progress">
-        <span class="overview-kpi__trend"><img :src="trendIcon" alt=""/>{{trend}}</span>
-        <small class="overview-kpi__comparison">{{comparison}}</small>
-      </span>
+      <span class="overview-kpi__visual">
+        <span class="overview-kpi__progress">
+          <span class="overview-kpi__trend"><img :src="trendIcon" alt=""/>{{trend}}</span>
+          <small class="overview-kpi__comparison">{{comparison}}</small>
+        </span>
 
-      <span class="overview-kpi__grid-layer" aria-hidden="true">
-        <img :src="tone==='featured'?featuredGridVertical:lightGridVertical" alt=""/>
-        <span class="overview-kpi__grid-horizontal"><img :src="tone==='featured'?featuredGridHorizontal:lightGridHorizontal" alt=""/></span>
-      </span>
+        <span class="overview-kpi__grid-layer" aria-hidden="true">
+          <img :src="tone==='featured'?featuredGridVertical:lightGridVertical" alt=""/>
+          <span class="overview-kpi__grid-horizontal"><img :src="tone==='featured'?featuredGridHorizontal:lightGridHorizontal" alt=""/></span>
+        </span>
 
-      <span v-if="chart==='line' && tone==='featured'" class="overview-kpi__line-visual overview-kpi__line-visual--featured" aria-hidden="true">
-        <img class="overview-kpi__chart-area" :src="featuredArea" alt=""/>
-        <img class="overview-kpi__chart-line" :src="featuredLine" alt=""/>
-        <img class="overview-kpi__chart-point" :src="featuredPoint" alt=""/>
-      </span>
-      <span v-else-if="chart==='line'" class="overview-kpi__line-visual overview-kpi__line-visual--purple" aria-hidden="true">
-        <img class="overview-kpi__chart-area" :src="purpleArea" alt=""/>
-        <img class="overview-kpi__chart-line" :src="purpleLine" alt=""/>
-        <img class="overview-kpi__chart-point" :src="purplePoint" alt=""/>
-      </span>
-      <span v-else class="overview-kpi__bars" aria-hidden="true">
-        <i v-for="height in [16,24,32,40,48,56,61]" :key="height" :style="{height:`${height}px`}"></i>
+        <span v-if="chart==='line' && tone==='featured'" class="overview-kpi__line-visual overview-kpi__line-visual--featured" aria-hidden="true">
+          <img class="overview-kpi__chart-area" :src="featuredArea" alt=""/>
+          <img class="overview-kpi__chart-line" :src="featuredLine" alt=""/>
+          <img class="overview-kpi__chart-point" :src="featuredPoint" alt=""/>
+        </span>
+        <span v-else-if="chart==='line'" class="overview-kpi__line-visual overview-kpi__line-visual--purple" aria-hidden="true">
+          <img class="overview-kpi__chart-area" :src="purpleArea" alt=""/>
+          <img class="overview-kpi__chart-line" :src="purpleLine" alt=""/>
+          <img class="overview-kpi__chart-point" :src="purplePoint" alt=""/>
+        </span>
+        <span v-else class="overview-kpi__bars" aria-hidden="true">
+          <i v-for="height in [16,24,32,40,48,56,61]" :key="height" :style="{height:`${height/61*100}%`}"></i>
+        </span>
       </span>
     </template>
+    <template #detail></template>
   </UiMetric>
 </template>
