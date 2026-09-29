@@ -45,7 +45,8 @@ const trendIcon=computed(()=>props.tone==='featured'?trendUpWhite:trendUpGreen);
         <span class="overview-kpi__title">{{title}}</span>
         <strong class="overview-kpi__value">{{value}}<em v-if="unit">{{unit}}</em></strong>
         <small class="overview-kpi__meta">
-          <span class="overview-kpi__bullet"><img :src="bulletIcon" alt=""/></span>{{meta}}
+          <span class="overview-kpi__bullet"><img :src="bulletIcon" alt=""/></span>
+          <span class="overview-kpi__meta-text">{{meta}}</span>
         </small>
       </span>
     </template>
